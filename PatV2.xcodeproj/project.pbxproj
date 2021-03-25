@@ -9,12 +9,10 @@
 /* Begin PBXBuildFile section */
 		A8C1ABB2260D2DE700085130 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C1ABB1260D2DE700085130 /* AppDelegate.swift */; };
 		A8C1ABB4260D2DE700085130 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C1ABB3260D2DE700085130 /* SceneDelegate.swift */; };
-		A8C1ABB6260D2DE700085130 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C1ABB5260D2DE700085130 /* ViewController.swift */; };
-		A8C1ABB9260D2DE700085130 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8C1ABB7260D2DE700085130 /* Main.storyboard */; };
 		A8C1ABBB260D2DEA00085130 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A8C1ABBA260D2DEA00085130 /* Assets.xcassets */; };
 		A8C1ABBE260D2DEA00085130 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8C1ABBC260D2DEA00085130 /* LaunchScreen.storyboard */; };
-		A8C1ABC9260D2DEA00085130 /* PatV2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C1ABC8260D2DEA00085130 /* PatV2Tests.swift */; };
-		A8C1ABD4260D2DEA00085130 /* PatV2UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C1ABD3260D2DEA00085130 /* PatV2UITests.swift */; };
+		A8C1ABEE260D2FC800085130 /* BreedsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C1ABED260D2FC800085130 /* BreedsViewController.swift */; };
+		A8C1AC01260D369A00085130 /* BreedsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C1AC00260D369A00085130 /* BreedsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,17 +36,13 @@
 		A8C1ABAE260D2DE700085130 /* PatV2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PatV2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8C1ABB1260D2DE700085130 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A8C1ABB3260D2DE700085130 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		A8C1ABB5260D2DE700085130 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		A8C1ABB8260D2DE700085130 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A8C1ABBA260D2DEA00085130 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A8C1ABBD260D2DEA00085130 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A8C1ABBF260D2DEA00085130 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A8C1ABC4260D2DEA00085130 /* PatV2Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PatV2Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		A8C1ABC8260D2DEA00085130 /* PatV2Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatV2Tests.swift; sourceTree = "<group>"; };
-		A8C1ABCA260D2DEA00085130 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A8C1ABCF260D2DEA00085130 /* PatV2UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PatV2UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		A8C1ABD3260D2DEA00085130 /* PatV2UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatV2UITests.swift; sourceTree = "<group>"; };
-		A8C1ABD5260D2DEA00085130 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A8C1ABED260D2FC800085130 /* BreedsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedsViewController.swift; sourceTree = "<group>"; };
+		A8C1AC00260D369A00085130 /* BreedsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,8 +74,6 @@
 			isa = PBXGroup;
 			children = (
 				A8C1ABB0260D2DE700085130 /* PatV2 */,
-				A8C1ABC7260D2DEA00085130 /* PatV2Tests */,
-				A8C1ABD2260D2DEA00085130 /* PatV2UITests */,
 				A8C1ABAF260D2DE700085130 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -99,33 +91,31 @@
 		A8C1ABB0260D2DE700085130 /* PatV2 */ = {
 			isa = PBXGroup;
 			children = (
-				A8C1ABB1260D2DE700085130 /* AppDelegate.swift */,
-				A8C1ABB3260D2DE700085130 /* SceneDelegate.swift */,
-				A8C1ABB5260D2DE700085130 /* ViewController.swift */,
-				A8C1ABB7260D2DE700085130 /* Main.storyboard */,
-				A8C1ABBA260D2DEA00085130 /* Assets.xcassets */,
-				A8C1ABBC260D2DEA00085130 /* LaunchScreen.storyboard */,
-				A8C1ABBF260D2DEA00085130 /* Info.plist */,
+				A8C1ABF3260D303B00085130 /* Application */,
+				A8C1ABF2260D2FDE00085130 /* Breeds */,
 			);
 			path = PatV2;
 			sourceTree = "<group>";
 		};
-		A8C1ABC7260D2DEA00085130 /* PatV2Tests */ = {
+		A8C1ABF2260D2FDE00085130 /* Breeds */ = {
 			isa = PBXGroup;
 			children = (
-				A8C1ABC8260D2DEA00085130 /* PatV2Tests.swift */,
-				A8C1ABCA260D2DEA00085130 /* Info.plist */,
+				A8C1ABED260D2FC800085130 /* BreedsViewController.swift */,
+				A8C1AC00260D369A00085130 /* BreedsView.swift */,
 			);
-			path = PatV2Tests;
+			path = Breeds;
 			sourceTree = "<group>";
 		};
-		A8C1ABD2260D2DEA00085130 /* PatV2UITests */ = {
+		A8C1ABF3260D303B00085130 /* Application */ = {
 			isa = PBXGroup;
 			children = (
-				A8C1ABD3260D2DEA00085130 /* PatV2UITests.swift */,
-				A8C1ABD5260D2DEA00085130 /* Info.plist */,
+				A8C1ABB1260D2DE700085130 /* AppDelegate.swift */,
+				A8C1ABB3260D2DE700085130 /* SceneDelegate.swift */,
+				A8C1ABBA260D2DEA00085130 /* Assets.xcassets */,
+				A8C1ABBC260D2DEA00085130 /* LaunchScreen.storyboard */,
+				A8C1ABBF260D2DEA00085130 /* Info.plist */,
 			);
-			path = PatV2UITests;
+			path = Application;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,7 +223,6 @@
 			files = (
 				A8C1ABBE260D2DEA00085130 /* LaunchScreen.storyboard in Resources */,
 				A8C1ABBB260D2DEA00085130 /* Assets.xcassets in Resources */,
-				A8C1ABB9260D2DE700085130 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,9 +247,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A8C1ABB6260D2DE700085130 /* ViewController.swift in Sources */,
 				A8C1ABB2260D2DE700085130 /* AppDelegate.swift in Sources */,
+				A8C1ABEE260D2FC800085130 /* BreedsViewController.swift in Sources */,
 				A8C1ABB4260D2DE700085130 /* SceneDelegate.swift in Sources */,
+				A8C1AC01260D369A00085130 /* BreedsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,7 +258,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A8C1ABC9260D2DEA00085130 /* PatV2Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,7 +265,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A8C1ABD4260D2DEA00085130 /* PatV2UITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,14 +284,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		A8C1ABB7260D2DE700085130 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A8C1ABB8260D2DE700085130 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		A8C1ABBC260D2DEA00085130 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -438,7 +418,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CY35DG58QL;
-				INFOPLIST_FILE = PatV2/Info.plist;
+				INFOPLIST_FILE = PatV2/Application/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -457,7 +437,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CY35DG58QL;
-				INFOPLIST_FILE = PatV2/Info.plist;
+				INFOPLIST_FILE = PatV2/Application/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
