@@ -13,6 +13,9 @@
 		A8C1ABBE260D2DEA00085130 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8C1ABBC260D2DEA00085130 /* LaunchScreen.storyboard */; };
 		A8C1ABEE260D2FC800085130 /* BreedsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C1ABED260D2FC800085130 /* BreedsViewController.swift */; };
 		A8C1AC01260D369A00085130 /* BreedsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C1AC00260D369A00085130 /* BreedsView.swift */; };
+		A8C1AC08260D3AD100085130 /* URL+API.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C1AC07260D3AD100085130 /* URL+API.swift */; };
+		A8C1AC10260D479C00085130 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C1AC0F260D479C00085130 /* Service.swift */; };
+		A8C1AC15260D4A0800085130 /* Breed.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C1AC14260D4A0800085130 /* Breed.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +46,9 @@
 		A8C1ABCF260D2DEA00085130 /* PatV2UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PatV2UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8C1ABED260D2FC800085130 /* BreedsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedsViewController.swift; sourceTree = "<group>"; };
 		A8C1AC00260D369A00085130 /* BreedsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedsView.swift; sourceTree = "<group>"; };
+		A8C1AC07260D3AD100085130 /* URL+API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+API.swift"; sourceTree = "<group>"; };
+		A8C1AC0F260D479C00085130 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		A8C1AC14260D4A0800085130 /* Breed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Breed.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +97,7 @@
 		A8C1ABB0260D2DE700085130 /* PatV2 */ = {
 			isa = PBXGroup;
 			children = (
+				A8C1AC05260D3A9C00085130 /* Common */,
 				A8C1ABF3260D303B00085130 /* Application */,
 				A8C1ABF2260D2FDE00085130 /* Breeds */,
 			);
@@ -102,6 +109,7 @@
 			children = (
 				A8C1ABED260D2FC800085130 /* BreedsViewController.swift */,
 				A8C1AC00260D369A00085130 /* BreedsView.swift */,
+				A8C1AC14260D4A0800085130 /* Breed.swift */,
 			);
 			path = Breeds;
 			sourceTree = "<group>";
@@ -116,6 +124,23 @@
 				A8C1ABBF260D2DEA00085130 /* Info.plist */,
 			);
 			path = Application;
+			sourceTree = "<group>";
+		};
+		A8C1AC05260D3A9C00085130 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				A8C1AC06260D3AA600085130 /* Network */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		A8C1AC06260D3AA600085130 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				A8C1AC07260D3AD100085130 /* URL+API.swift */,
+				A8C1AC0F260D479C00085130 /* Service.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -248,9 +273,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				A8C1ABB2260D2DE700085130 /* AppDelegate.swift in Sources */,
+				A8C1AC15260D4A0800085130 /* Breed.swift in Sources */,
+				A8C1AC08260D3AD100085130 /* URL+API.swift in Sources */,
 				A8C1ABEE260D2FC800085130 /* BreedsViewController.swift in Sources */,
 				A8C1ABB4260D2DE700085130 /* SceneDelegate.swift in Sources */,
 				A8C1AC01260D369A00085130 /* BreedsView.swift in Sources */,
+				A8C1AC10260D479C00085130 /* Service.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

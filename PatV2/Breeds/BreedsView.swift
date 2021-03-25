@@ -1,8 +1,11 @@
 import UIKit
 
 class BreedsView: UIView {
-    init() {
-        super.init(frame: .zero)
+
+    let tableView = UITableView()
+
+    override init(frame: CGRect = .zero) {
+        super.init(frame: frame)
         backgroundColor = .purple
     }
     
