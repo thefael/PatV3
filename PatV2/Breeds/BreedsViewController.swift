@@ -2,11 +2,11 @@ import UIKit
 
 class BreedsViewController: UIViewController {
     let breedsView = BreedsView()
-    let service: Service
+    let presenter: BreedsPresenterType
     let dataSource = TableViewDataSource<Breed, BreedCell>()
 
-    init(service: Service = URLSessionService()) {
-        self.service = service
+    init(presenter: BreedsPresenterType = BreedsPresenter(service: URLSessionService())) {
+        self.presenter = presenter
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -31,18 +31,13 @@ class BreedsViewController: UIViewController {
     }
 
     func configureCell() {
-        dataSource.configureCell = { item, cell in
-            DispatchQueue.main.async {
-                cell.name.text = item.name
-            }
-        }
+        dataSource.configureCell = { item, cell in cell.name.text = item.name }
     }
 
     func fetchData() {
-        service.fetchData(from: URL.breedsURL) { (result: Result<[String], Error>) in
+        presenter.fetchData(from: URL.breedsURL) { result in
             switch result {
-            case .success(let breedsNames):
-                let breeds = breedsNames.map { name in Breed(name: name) }
+            case .success(let breeds):
                 DispatchQueue.main.async {
                     self.dataSource.items = breeds
                     self.breedsView.tableView.reloadData()
