@@ -1,8 +1,6 @@
-//
-//  Constants.swift
-//  PatV2
-//
-//  Created by Rafael Rodrigues on 25/03/21.
-//
+import UIKit
 
-import Foundation
+class Constants {
+    static let cellIdentifier = "ReusableCell"
+    static let screen = UIScreen.main.bounds
+}
