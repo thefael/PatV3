@@ -1,8 +1,24 @@
-//
-//  BreedCell.swift
-//  PatV2
-//
-//  Created by Rafael Rodrigues on 25/03/21.
-//
+import UIKit
+import SnapKit
 
-import Foundation
+class BreedCell: UITableViewCell {
+    let name = UILabel()
+
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String? ) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        setupName()
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    private func setupName() {
+        contentView.addSubview(name)
+        name.snp.makeConstraints { (make) -> Void in
+            make.left.equalToSuperview()
+            make.top.equalToSuperview()
+        }
+    }
+
+}

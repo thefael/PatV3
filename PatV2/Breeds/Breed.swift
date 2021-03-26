@@ -1,5 +1,5 @@
 import Foundation
 
-struct Breed {
+struct Breed: Codable {
     let name: String
 }
