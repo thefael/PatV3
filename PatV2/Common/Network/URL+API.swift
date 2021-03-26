@@ -10,4 +10,10 @@ extension URL {
         let url = baseURL.appendingPathComponent("breeds")
         return url
     }
+
+    static func dogImagesURL(breed: String) -> URL {
+        return URL.baseURL
+            .appendingPathComponent(breed)
+            .appendingPathComponent("/images")
+    }
 }
