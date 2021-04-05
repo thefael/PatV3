@@ -1,24 +1,26 @@
 import UIKit
 
 protocol BreedsPresenterType {
-    func fetchData(from url: URL, completion: @escaping ((Result<[Breed], Error>) -> Void))
+    var presentable: BreedsPresentable? { get set }
+    func fetchData(from url: URL)
 }
 
 class BreedsPresenter: BreedsPresenterType {
     let service: Service
+    weak var presentable: BreedsPresentable?
 
     init(service: Service) {
         self.service = service
     }
 
-    func fetchData(from url: URL, completion: @escaping ((Result<[Breed], Error>) -> Void)) {
+    func fetchData(from url: URL) {
         service.fetchData(from: url) { (result: Result<[String], Error>) in
             switch result {
             case .success(let items):
                 let breeds = items.map { name in Breed(name: name) }
-                completion(.success(breeds))
+                self.presentable?.passData(data: breeds)
             case .failure(let error):
-                completion(.failure(error))
+                print(error)
             }
         }
     }
