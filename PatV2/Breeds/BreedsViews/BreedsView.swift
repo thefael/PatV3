@@ -5,7 +5,7 @@ class BreedsView: UIView {
 
     let tableView = UITableView()
 
-    override init(frame: CGRect = UIScreen.main.bounds) {
+    override init(frame: CGRect = Constants.screen) {
         super.init(frame: frame)
         setupTableView()
     }
@@ -14,7 +14,7 @@ class BreedsView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func setupTableView() {
+    private func setupTableView() {
         addSubview(tableView)
         tableView.snp.makeConstraints { (make) -> Void in
             make.bottom.equalToSuperview()
