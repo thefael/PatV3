@@ -1,20 +1,26 @@
 import UIKit
 
-class DogsPresenter {
+protocol DogsPresenterType {
+    var presentable: DogsPresentable? { get set }
+    func fetchImages(from url: URL)
+}
+
+class DogsPresenter: DogsPresenterType {
 
     let service: Service
+    weak var presentable: DogsPresentable?
 
     init(service: Service = URLSessionService()) {
         self.service = service
     }
 
-    func fetchImage(url: URL, completion: @escaping ((Result<UIImage, Error>) -> Void)) {
-        service.fetchImage(from: url) { (result: Result<UIImage, Error>) in
+    func fetchImages(from url: URL) {
+        service.fetchImages(from: url) { result in
             switch result {
-            case .success(let image):
-                completion(.success(image))
+            case .success(let images):
+                self.presentable?.passImages(images: images)
             case .failure(let error):
-                completion(.failure(error))
+                print(error)
             }
         }
     }

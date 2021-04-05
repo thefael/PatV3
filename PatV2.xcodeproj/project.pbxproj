@@ -137,10 +137,9 @@
 		A84FAA21260E5AE200A1BBFC /* Dogs */ = {
 			isa = PBXGroup;
 			children = (
+				A8A3073C261BA356001CC04A /* DogsViews */,
 				A84FAA22260E5B1800A1BBFC /* DogsViewController.swift */,
 				A84FAA3A260E950D00A1BBFC /* DogsPresenter.swift */,
-				A84FAA2A260E5B3400A1BBFC /* DogsView.swift */,
-				A84FAA42260E967500A1BBFC /* DogCell.swift */,
 			);
 			path = Dogs;
 			sourceTree = "<group>";
@@ -152,6 +151,15 @@
 				A8C1AC38260D598000085130 /* BreedCell.swift */,
 			);
 			path = BreedsViews;
+			sourceTree = "<group>";
+		};
+		A8A3073C261BA356001CC04A /* DogsViews */ = {
+			isa = PBXGroup;
+			children = (
+				A84FAA2A260E5B3400A1BBFC /* DogsView.swift */,
+				A84FAA42260E967500A1BBFC /* DogCell.swift */,
+			);
+			path = DogsViews;
 			sourceTree = "<group>";
 		};
 		A8C1ABA5260D2DE700085130 = {
