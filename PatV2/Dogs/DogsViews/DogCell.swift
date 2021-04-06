@@ -2,7 +2,7 @@ import UIKit
 import SnapKit
 
 class DogCell: UITableViewCell {
-    var dogImage = UIImageView()
+    var dogImageView = UIImageView()
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -13,10 +13,13 @@ class DogCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
-    private func setupDogImage() {
-        contentView.addSubview(dogImage)
-        dogImage.snp.makeConstraints { (make) -> Void in
+    func setupDogImage() {
+        dogImageView.clipsToBounds = true
+        dogImageView.translatesAutoresizingMaskIntoConstraints = false
+        contentView.addSubview(dogImageView)
+        dogImageView.snp.makeConstraints { (make) -> Void in
             make.edges.equalToSuperview()
         }
+        dogImageView.contentMode = .scaleAspectFill
     }
 }

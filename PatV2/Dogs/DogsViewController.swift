@@ -33,11 +33,10 @@ class DogsViewController: UIViewController {
 
     func setupView() {
         dogsView.tableView.dataSource = dataSource
-        dogsView.tableView.rowHeight = UITableView.automaticDimension
-        dogsView.tableView.estimatedRowHeight = 44
+        dogsView.tableView.rowHeight = 200
         dogsView.tableView.register(DogCell.self, forCellReuseIdentifier: Constants.cellIdentifier)
-        dataSource.configureCell = { item, cell in
-            DispatchQueue.main.async { cell.dogImage.image = item }
+        dataSource.configureCell = { image, cell in
+            DispatchQueue.main.async { cell.dogImageView.image = image }
         }
     }
 }
