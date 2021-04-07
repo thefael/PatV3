@@ -3,6 +3,7 @@ import UIKit
 protocol Service {
     func fetchData<T: Decodable>(from url: URL, completion: @escaping ((Result<T, Error>) -> Void))
     func fetchImages(from url: URL, completion: @escaping ((Result<[UIImage], Error>) -> Void))
+    func fetchImage(from url: URL, completion: @escaping ((Result<UIImage, Error>) -> Void))
 }
 
 class URLSessionService: Service {
