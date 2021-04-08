@@ -3,6 +3,7 @@ import SnapKit
 
 class DogCell: UITableViewCell {
     var dogImageView = UIImageView()
+    var imageTask: URLSessionTask?
 
     let presenter = DogsPresenter(service: URLSessionService())
 

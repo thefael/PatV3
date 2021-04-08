@@ -3,7 +3,7 @@ import UIKit
 protocol DogsPresenterType {
     var presentable: DogsPresentable? { get set }
     func fetchURLs(from url: URL)
-    func fetchImage(from url: URL, into: DogCell)
+    func fetchImage(from url: URL, into: DogCell) -> URLSessionTask
 }
 
 class DogsPresenter: DogsPresenterType {
@@ -26,8 +26,8 @@ class DogsPresenter: DogsPresenterType {
         }
     }
 
-    func fetchImage(from url: URL, into cell: DogCell) {
-        service.fetchImage(from: url) { result in
+    func fetchImage(from url: URL, into cell: DogCell) -> URLSessionTask {
+        let imageTask = service.fetchImage(from: url) { result in
             switch result {
             case .success(let image):
                 self.presentable?.pass(image: image, to: cell)
@@ -35,5 +35,6 @@ class DogsPresenter: DogsPresenterType {
                 print(error)
             }
         }
+        return imageTask
     }
 }

@@ -34,10 +34,11 @@ class DogsViewController: UIViewController {
 
     func setupView() {
         dogsView.tableView.dataSource = dataSource
+        dogsView.tableView.delegate = self
         dogsView.tableView.rowHeight = 200
         dogsView.tableView.register(DogCell.self, forCellReuseIdentifier: Constants.cellIdentifier)
         dataSource.configureCell = { url, cell in
-            self.presenter.fetchImage(from: url, into: cell)
+            cell.imageTask = self.presenter.fetchImage(from: url, into: cell)
         }
     }
 }
@@ -54,5 +55,12 @@ extension DogsViewController: DogsPresentable {
         DispatchQueue.main.async {
             cell.dogImageView.image = image
         }
+    }
+}
+
+extension DogsViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let cell = cell as? DogCell
+        cell?.imageTask?.cancel()
     }
 }
