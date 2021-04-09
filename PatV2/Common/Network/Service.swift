@@ -7,38 +7,38 @@ protocol Service {
 
 class URLSessionService: Service {
 
-    let session: URLSession
+    let session: URLSessionAdaptable
     let decoder: JSONDecoder
 
-    init(session: URLSession = .shared, decoder: JSONDecoder = JSONDecoder()) {
+    init(session: URLSessionAdaptable = URLSessionAdapter(), decoder: JSONDecoder = JSONDecoder()) {
         self.session = session
         self.decoder = decoder
     }
 
     func fetchData<T: Decodable>(from url: URL, completion: @escaping ((Result<T, Error>) -> Void)) {
-        session.dataTask(with: url) { (data, _, error) in
-            if let data = data {
+        session.fetchData(url: url) { result in
+            switch result {
+            case .success(let data):
                 do {
-                    let object = try self.decoder.decode(T.self, from: data)
-                    completion(.success(object))
-                } catch {
-                    completion(.failure(error))
-                }
-            } else if let error = error {
-                completion(.failure(error))
-            }
-        }.resume()
-    }
+                    let obj = try self.decoder.decode(T.self, from: data)
+                    completion(.success(obj))
+                } catch { completion(.failure(error)) }
 
-    func fetchImage(from url: URL, completion: @escaping ((Result<UIImage, Error>) -> Void)) -> URLSessionTask {
-        let imageTask = session.dataTask(with: url) { (data, _, error) in
-            if let data = data, let image = UIImage(data: data) {
-                completion(.success(image))
-            } else if let error = error {
+            case .failure(let error):
                 completion(.failure(error))
             }
         }
-        imageTask.resume()
+    }
+
+    func fetchImage(from url: URL, completion: @escaping ((Result<UIImage, Error>) -> Void)) -> URLSessionTask {
+        let imageTask = session.fetchImage(from: url) { result in
+            switch result {
+            case .success(let image):
+                completion(.success(image))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
         return imageTask
     }
 }

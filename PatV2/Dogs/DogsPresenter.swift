@@ -3,16 +3,18 @@ import UIKit
 protocol DogsPresenterType {
     var presentable: DogsPresentable? { get set }
     func fetchURLs(from url: URL)
-    func fetchImage(from url: URL, into: DogCell) -> URLSessionTask
+    func fetchImage(from url: URL, into: DogCell) -> URLSessionTask?
 }
 
 class DogsPresenter: DogsPresenterType {
 
     let service: Service
+    let imageCache: ImageCacheType
     weak var presentable: DogsPresentable?
 
-    init(service: Service = URLSessionService()) {
+    init(service: Service = URLSessionService(), cache: ImageCacheType = ImageCache()) {
         self.service = service
+        self.imageCache = cache
     }
 
     func fetchURLs(from url: URL) {
@@ -26,15 +28,22 @@ class DogsPresenter: DogsPresenterType {
         }
     }
 
-    func fetchImage(from url: URL, into cell: DogCell) -> URLSessionTask {
-        let imageTask = service.fetchImage(from: url) { result in
-            switch result {
-            case .success(let image):
-                self.presentable?.pass(image: image, to: cell)
-            case .failure(let error):
-                print(error)
+    func fetchImage(from url: URL, into cell: DogCell) -> URLSessionTask? {
+        if let image = imageCache.getImage(forKey: url as NSURL) {
+            self.presentable?.pass(image: image, to: cell)
+            return nil
+
+        } else {
+            let imageTask = service.fetchImage(from: url) { result in
+                switch result {
+                case .success(let image):
+                    self.imageCache.set(image: image, forKey: url as NSURL)
+                    self.presentable?.pass(image: image, to: cell)
+                case .failure(let error):
+                    print(error)
+                }
             }
+            return imageTask
         }
-        return imageTask
     }
 }

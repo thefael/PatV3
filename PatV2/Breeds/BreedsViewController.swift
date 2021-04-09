@@ -31,6 +31,7 @@ class BreedsViewController: UIViewController {
 
     func setupView() {
         breedsView.tableView.dataSource = dataSource
+        breedsView.tableView.rowHeight = 44
         breedsView.tableView.delegate = self
         breedsView.tableView.register(BreedCell.self, forCellReuseIdentifier: Constants.cellIdentifier)
         dataSource.configureCell = { item, cell in cell.name.text = item.name }

@@ -61,6 +61,6 @@ extension DogsViewController: DogsPresentable {
 extension DogsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let cell = cell as? DogCell
-        cell?.imageTask?.cancel()
+        cell?.imageTask?.suspend()
     }
 }
