@@ -1,6 +1,6 @@
 import UIKit
 
-class TableViewDataSource<T: Codable, Cell: UITableViewCell>: NSObject, UITableViewDataSource {
+class TableViewDataSource<T, Cell: UITableViewCell>: NSObject, UITableViewDataSource {
     var items = [T]()
     var configureCell: ((T, Cell) -> Void)?
 

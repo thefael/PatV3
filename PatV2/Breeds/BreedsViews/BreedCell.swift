@@ -4,7 +4,7 @@ import SnapKit
 class BreedCell: UITableViewCell {
     let name = UILabel()
 
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String? ) {
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupName()
     }
@@ -16,8 +16,8 @@ class BreedCell: UITableViewCell {
     private func setupName() {
         contentView.addSubview(name)
         name.snp.makeConstraints { (make) -> Void in
-            make.left.equalToSuperview()
-            make.top.equalToSuperview()
+            make.left.equalToSuperview().offset(20)
+            make.top.equalToSuperview().offset(10)
         }
     }
 

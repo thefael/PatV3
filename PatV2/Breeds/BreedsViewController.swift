@@ -1,8 +1,12 @@
 import UIKit
 
+protocol BreedsPresentable: class {
+    func passData(data: Decodable)
+}
+
 class BreedsViewController: UIViewController {
     let breedsView = BreedsView()
-    let presenter: BreedsPresenterType
+    var presenter: BreedsPresenterType
     let dataSource = TableViewDataSource<Breed, BreedCell>()
 
     init(presenter: BreedsPresenterType = BreedsPresenter(service: URLSessionService())) {
@@ -20,31 +24,39 @@ class BreedsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        presenter.presentable = self
         setupView()
-        configureCell()
         fetchData()
     }
 
     func setupView() {
         breedsView.tableView.dataSource = dataSource
+        breedsView.tableView.rowHeight = 44
+        breedsView.tableView.delegate = self
         breedsView.tableView.register(BreedCell.self, forCellReuseIdentifier: Constants.cellIdentifier)
-    }
-
-    func configureCell() {
         dataSource.configureCell = { item, cell in cell.name.text = item.name }
     }
 
     func fetchData() {
-        presenter.fetchData(from: URL.breedsURL) { result in
-            switch result {
-            case .success(let breeds):
-                DispatchQueue.main.async {
-                    self.dataSource.items = breeds
-                    self.breedsView.tableView.reloadData()
-                }
-            case .failure(let error):
-                print(error)
-            }
+        presenter.fetchData(from: URL.breedsURL)
+    }
+}
+
+extension BreedsViewController: BreedsPresentable {
+    func passData(data: Decodable) {
+        guard let breeds = data as? [Breed] else { return }
+        DispatchQueue.main.async {
+            self.dataSource.items = breeds
+            self.breedsView.tableView.reloadData()
         }
+    }
+}
+
+extension BreedsViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath) as? BreedCell
+        guard let breed = cell?.name.text else { return }
+        let dogsVC = DogsViewController(breed: breed)
+        navigationController?.pushViewController(dogsVC, animated: true)
     }
 }
