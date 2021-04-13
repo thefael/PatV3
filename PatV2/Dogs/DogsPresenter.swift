@@ -23,7 +23,7 @@ class DogsPresenter: DogsPresenterType {
             case .success(let urls):
                 self.presentable?.passData(urls: urls)
             case .failure(let error):
-                print(error)
+                print("Error on fetchURLs: \(error)")
             }
         }
     }
@@ -40,7 +40,7 @@ class DogsPresenter: DogsPresenterType {
                     self.imageCache.set(image: image, forKey: url as NSURL)
                     self.presentable?.pass(image: image, to: cell)
                 case .failure(let error):
-                    print(error)
+                    print("Error on fetchImage: \(error)")
                 }
             }
             return imageTask
