@@ -3,22 +3,23 @@ import UIKit
 protocol FavoriteBreedsCacheType {
     var cache: [String] { get set }
     var defaults: UserDefaultsAdaptable { get set }
-    func set(breed: String, forKey key: String)
+    func put(breed: String)
     func remove(breed: String)
 }
 
 class FavoriteBreedsCache: FavoriteBreedsCacheType {
-    var cache: [String]
-    var defaults: UserDefaultsAdaptable
+    var cache = [String]()
+    static let shared = FavoriteBreedsCache()
+    internal var defaults: UserDefaultsAdaptable
 
-    init(cache: [String], defaults: UserDefaultsAdapter) {
+    init(defaults: UserDefaultsAdaptable = UserDefaultsAdapter()) {
         if let cache = defaults.getObject(forKey: Constants.favoriteCacheKey) as? [String] {
             self.cache = cache
-        } else { self.cache = cache }
+        }
         self.defaults = defaults
     }
 
-    func set(breed: String, forKey key: String) {
+    func put(breed: String) {
         cache.append(breed)
         defaults.set(cache, forKey: Constants.favoriteCacheKey)
     }
