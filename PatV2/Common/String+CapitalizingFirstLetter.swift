@@ -1,8 +1,9 @@
-//
-//  String+CapitalizingFirstLetter.swift
-//  PatV2
-//
-//  Created by Rafael Rodrigues on 13/04/21.
-//
+extension String {
+    func capitalizingFirstLetter() -> String {
+      return prefix(1).uppercased() + self.lowercased().dropFirst()
+    }
 
-import Foundation
+    mutating func capitalizeFirstLetter() {
+      self = self.capitalizingFirstLetter()
+    }
+}

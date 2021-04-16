@@ -11,6 +11,8 @@
 		760FF1F87619215E3704EDD1 /* Pods_PatV2_PatV2UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1580E783EBF31DB9E0C556AA /* Pods_PatV2_PatV2UITests.framework */; };
 		A8043A43262536D700520406 /* UserDefaultsAdaptable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8043A42262536D700520406 /* UserDefaultsAdaptable.swift */; };
 		A81C09B72624DEBA0087F250 /* FavoriteBreedsCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81C09B62624DEBA0087F250 /* FavoriteBreedsCache.swift */; };
+		A84701232625E1DC00F32182 /* String+CapitalizingFirstLetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84701222625E1DC00F32182 /* String+CapitalizingFirstLetter.swift */; };
+		A847012D26260CC000F32182 /* FavoriteButtonPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A847012C26260CC000F32182 /* FavoriteButtonPresenter.swift */; };
 		A84FAA10260DEC5A00A1BBFC /* BreedsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84FAA0F260DEC5A00A1BBFC /* BreedsPresenter.swift */; };
 		A84FAA23260E5B1800A1BBFC /* DogsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84FAA22260E5B1800A1BBFC /* DogsViewController.swift */; };
 		A84FAA2B260E5B3400A1BBFC /* DogsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84FAA2A260E5B3400A1BBFC /* DogsView.swift */; };
@@ -60,6 +62,8 @@
 		9DC66DBF75BE7DEA3872B615 /* Pods_PatV2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PatV2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8043A42262536D700520406 /* UserDefaultsAdaptable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsAdaptable.swift; sourceTree = "<group>"; };
 		A81C09B62624DEBA0087F250 /* FavoriteBreedsCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteBreedsCache.swift; sourceTree = "<group>"; };
+		A84701222625E1DC00F32182 /* String+CapitalizingFirstLetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+CapitalizingFirstLetter.swift"; sourceTree = "<group>"; };
+		A847012C26260CC000F32182 /* FavoriteButtonPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteButtonPresenter.swift; sourceTree = "<group>"; };
 		A84FAA0F260DEC5A00A1BBFC /* BreedsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedsPresenter.swift; sourceTree = "<group>"; };
 		A84FAA22260E5B1800A1BBFC /* DogsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogsViewController.swift; sourceTree = "<group>"; };
 		A84FAA2A260E5B3400A1BBFC /* DogsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogsView.swift; sourceTree = "<group>"; };
@@ -217,6 +221,7 @@
 			children = (
 				A8A3073B261BA0BE001CC04A /* BreedsViews */,
 				A8C1ABED260D2FC800085130 /* BreedsViewController.swift */,
+				A847012C26260CC000F32182 /* FavoriteButtonPresenter.swift */,
 				A84FAA0F260DEC5A00A1BBFC /* BreedsPresenter.swift */,
 				A8C1AC14260D4A0800085130 /* Breed.swift */,
 			);
@@ -242,6 +247,7 @@
 				A8C1AC06260D3AA600085130 /* Network */,
 				A8C1AC33260D56B300085130 /* Constants.swift */,
 				A84FAA35260E893800A1BBFC /* CommonError.swift */,
+				A84701222625E1DC00F32182 /* String+CapitalizingFirstLetter.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -499,11 +505,13 @@
 				A84FAA36260E893800A1BBFC /* CommonError.swift in Sources */,
 				A84FAA43260E967500A1BBFC /* DogCell.swift in Sources */,
 				A8043A43262536D700520406 /* UserDefaultsAdaptable.swift in Sources */,
+				A84701232625E1DC00F32182 /* String+CapitalizingFirstLetter.swift in Sources */,
 				A8C1AC15260D4A0800085130 /* Breed.swift in Sources */,
 				A84FAA10260DEC5A00A1BBFC /* BreedsPresenter.swift in Sources */,
 				A8C1AC2F260D50E500085130 /* TableViewDataSource.swift in Sources */,
 				A8A8F270261FA1E400E3439C /* URLSessionAdaptable.swift in Sources */,
 				A8C1AC08260D3AD100085130 /* URL+API.swift in Sources */,
+				A847012D26260CC000F32182 /* FavoriteButtonPresenter.swift in Sources */,
 				A81C09B72624DEBA0087F250 /* FavoriteBreedsCache.swift in Sources */,
 				A8C1ABEE260D2FC800085130 /* BreedsViewController.swift in Sources */,
 				A8C1ABB4260D2DE700085130 /* SceneDelegate.swift in Sources */,
