@@ -7,6 +7,7 @@ protocol BreedsPresentable: class {
 class BreedsViewController: UIViewController {
     let breedsView = BreedsView()
     var presenter: BreedsPresenterType
+    let buttonPresenter = FavoriteButtonPresenter()
     let dataSource = TableViewDataSource<Breed, BreedCell>()
 
     init(presenter: BreedsPresenterType = BreedsPresenter(service: URLSessionService())) {
@@ -26,7 +27,7 @@ class BreedsViewController: UIViewController {
         super.viewDidLoad()
         presenter.presentable = self
         setupView()
-        fetchData()
+        presenter.fetchData(from: URL.breedsURL)
     }
 
     func setupView() {
@@ -34,11 +35,18 @@ class BreedsViewController: UIViewController {
         breedsView.tableView.rowHeight = 44
         breedsView.tableView.delegate = self
         breedsView.tableView.register(BreedCell.self, forCellReuseIdentifier: Constants.cellIdentifier)
-        dataSource.configureCell = { item, cell in cell.name.text = item.name }
+        dataSource.configureCell = { item, cell in
+            let breed = item.name.capitalizingFirstLetter()
+            cell.name.text = breed
+            cell.favoriteButton.setImage(self.buttonPresenter.getInitialButtonImage(for: breed), for: .normal)
+            cell.favoriteButton.addTarget(self, action: #selector(self.onTap(_:)), for: .touchUpInside)
+        }
     }
 
-    func fetchData() {
-        presenter.fetchData(from: URL.breedsURL)
+    @objc func onTap(_ sender: UIButton) {
+        guard let cell = sender.superview as? BreedCell else { return }
+        guard let breed = cell.name.text else { return }
+        buttonPresenter.tapButton(sender, for: breed)
     }
 }
 
@@ -55,7 +63,7 @@ extension BreedsViewController: BreedsPresentable {
 extension BreedsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath) as? BreedCell
-        guard let breed = cell?.name.text else { return }
+        guard let breed = cell?.name.text?.lowercased() else { return }
         let dogsVC = DogsViewController(breed: breed)
         navigationController?.pushViewController(dogsVC, animated: true)
     }
