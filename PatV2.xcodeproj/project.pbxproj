@@ -11,6 +11,8 @@
 		760FF1F87619215E3704EDD1 /* Pods_PatV2_PatV2UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1580E783EBF31DB9E0C556AA /* Pods_PatV2_PatV2UITests.framework */; };
 		A8043A43262536D700520406 /* UserDefaultsAdaptable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8043A42262536D700520406 /* UserDefaultsAdaptable.swift */; };
 		A81C09B72624DEBA0087F250 /* FavoriteBreedsCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81C09B62624DEBA0087F250 /* FavoriteBreedsCache.swift */; };
+		A81D42AA262E053E005EF46B /* FavoriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81D42A9262E053E005EF46B /* FavoriteCell.swift */; };
+		A84644B4262A1BAB0044A96A /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84644B3262A1BAB0044A96A /* FavoritesViewController.swift */; };
 		A84701232625E1DC00F32182 /* String+CapitalizingFirstLetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84701222625E1DC00F32182 /* String+CapitalizingFirstLetter.swift */; };
 		A847012D26260CC000F32182 /* FavoriteButtonPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A847012C26260CC000F32182 /* FavoriteButtonPresenter.swift */; };
 		A84FAA10260DEC5A00A1BBFC /* BreedsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84FAA0F260DEC5A00A1BBFC /* BreedsPresenter.swift */; };
@@ -26,7 +28,6 @@
 		A8C1ABBB260D2DEA00085130 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A8C1ABBA260D2DEA00085130 /* Assets.xcassets */; };
 		A8C1ABBE260D2DEA00085130 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8C1ABBC260D2DEA00085130 /* LaunchScreen.storyboard */; };
 		A8C1ABEE260D2FC800085130 /* BreedsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C1ABED260D2FC800085130 /* BreedsViewController.swift */; };
-		A8C1AC01260D369A00085130 /* BreedsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C1AC00260D369A00085130 /* BreedsView.swift */; };
 		A8C1AC08260D3AD100085130 /* URL+API.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C1AC07260D3AD100085130 /* URL+API.swift */; };
 		A8C1AC10260D479C00085130 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C1AC0F260D479C00085130 /* Service.swift */; };
 		A8C1AC15260D4A0800085130 /* Breed.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C1AC14260D4A0800085130 /* Breed.swift */; };
@@ -62,6 +63,8 @@
 		9DC66DBF75BE7DEA3872B615 /* Pods_PatV2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PatV2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8043A42262536D700520406 /* UserDefaultsAdaptable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsAdaptable.swift; sourceTree = "<group>"; };
 		A81C09B62624DEBA0087F250 /* FavoriteBreedsCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteBreedsCache.swift; sourceTree = "<group>"; };
+		A81D42A9262E053E005EF46B /* FavoriteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCell.swift; sourceTree = "<group>"; };
+		A84644B3262A1BAB0044A96A /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		A84701222625E1DC00F32182 /* String+CapitalizingFirstLetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+CapitalizingFirstLetter.swift"; sourceTree = "<group>"; };
 		A847012C26260CC000F32182 /* FavoriteButtonPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteButtonPresenter.swift; sourceTree = "<group>"; };
 		A84FAA0F260DEC5A00A1BBFC /* BreedsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedsPresenter.swift; sourceTree = "<group>"; };
@@ -81,7 +84,6 @@
 		A8C1ABC4260D2DEA00085130 /* PatV2Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PatV2Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8C1ABCF260D2DEA00085130 /* PatV2UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PatV2UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8C1ABED260D2FC800085130 /* BreedsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedsViewController.swift; sourceTree = "<group>"; };
-		A8C1AC00260D369A00085130 /* BreedsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedsView.swift; sourceTree = "<group>"; };
 		A8C1AC07260D3AD100085130 /* URL+API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+API.swift"; sourceTree = "<group>"; };
 		A8C1AC0F260D479C00085130 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		A8C1AC14260D4A0800085130 /* Breed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Breed.swift; sourceTree = "<group>"; };
@@ -146,6 +148,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		A84644B2262A1AE70044A96A /* Favorites */ = {
+			isa = PBXGroup;
+			children = (
+				A81D42A9262E053E005EF46B /* FavoriteCell.swift */,
+				A84644B3262A1BAB0044A96A /* FavoritesViewController.swift */,
+			);
+			path = Favorites;
+			sourceTree = "<group>";
+		};
 		A84FAA21260E5AE200A1BBFC /* Dogs */ = {
 			isa = PBXGroup;
 			children = (
@@ -164,15 +175,6 @@
 				A8043A42262536D700520406 /* UserDefaultsAdaptable.swift */,
 			);
 			path = Cache;
-			sourceTree = "<group>";
-		};
-		A8A3073B261BA0BE001CC04A /* BreedsViews */ = {
-			isa = PBXGroup;
-			children = (
-				A8C1AC00260D369A00085130 /* BreedsView.swift */,
-				A8C1AC38260D598000085130 /* BreedCell.swift */,
-			);
-			path = BreedsViews;
 			sourceTree = "<group>";
 		};
 		A8A3073C261BA356001CC04A /* DogsViews */ = {
@@ -210,6 +212,7 @@
 			children = (
 				A8C1ABF3260D303B00085130 /* Application */,
 				A8C1AC05260D3A9C00085130 /* Common */,
+				A84644B2262A1AE70044A96A /* Favorites */,
 				A8C1ABF2260D2FDE00085130 /* Breeds */,
 				A84FAA21260E5AE200A1BBFC /* Dogs */,
 			);
@@ -219,7 +222,7 @@
 		A8C1ABF2260D2FDE00085130 /* Breeds */ = {
 			isa = PBXGroup;
 			children = (
-				A8A3073B261BA0BE001CC04A /* BreedsViews */,
+				A8C1AC38260D598000085130 /* BreedCell.swift */,
 				A8C1ABED260D2FC800085130 /* BreedsViewController.swift */,
 				A847012C26260CC000F32182 /* FavoriteButtonPresenter.swift */,
 				A84FAA0F260DEC5A00A1BBFC /* BreedsPresenter.swift */,
@@ -503,6 +506,7 @@
 			files = (
 				A8C1ABB2260D2DE700085130 /* AppDelegate.swift in Sources */,
 				A84FAA36260E893800A1BBFC /* CommonError.swift in Sources */,
+				A81D42AA262E053E005EF46B /* FavoriteCell.swift in Sources */,
 				A84FAA43260E967500A1BBFC /* DogCell.swift in Sources */,
 				A8043A43262536D700520406 /* UserDefaultsAdaptable.swift in Sources */,
 				A84701232625E1DC00F32182 /* String+CapitalizingFirstLetter.swift in Sources */,
@@ -516,11 +520,11 @@
 				A8C1ABEE260D2FC800085130 /* BreedsViewController.swift in Sources */,
 				A8C1ABB4260D2DE700085130 /* SceneDelegate.swift in Sources */,
 				A84FAA23260E5B1800A1BBFC /* DogsViewController.swift in Sources */,
-				A8C1AC01260D369A00085130 /* BreedsView.swift in Sources */,
 				A872C17D2620DD0C002DB810 /* ImageCache.swift in Sources */,
 				A8C1AC10260D479C00085130 /* Service.swift in Sources */,
 				A8C1AC39260D598000085130 /* BreedCell.swift in Sources */,
 				A84FAA3B260E950D00A1BBFC /* DogsPresenter.swift in Sources */,
+				A84644B4262A1BAB0044A96A /* FavoritesViewController.swift in Sources */,
 				A8C1AC34260D56B300085130 /* Constants.swift in Sources */,
 				A84FAA2B260E5B3400A1BBFC /* DogsView.swift in Sources */,
 			);

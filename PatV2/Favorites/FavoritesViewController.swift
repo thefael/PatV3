@@ -1,23 +1,27 @@
 import UIKit
 
-class FavoritesViewController: UIViewController {
-    let favoritesView = BreedsView(frame: Constants.screen)
-    let cache = FavoriteBreedsCache.shared
+class FavoritesViewController: UITableViewController {
+    let cache: FavoriteBreedsCacheType
     let dataSource = TableViewDataSource<String, FavoriteCell>()
 
-    override func loadView() {
-        self.view = favoritesView
+    init(cache: FavoriteBreedsCacheType = FavoriteBreedsCache.shared) {
+        self.cache = cache
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 
     override func viewWillAppear(_ animated: Bool) {
         dataSource.items = cache.cache.sorted { $0 < $1 }
-        favoritesView.tableView.reloadData()
+        tableView.reloadData()
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         dataSource.configureCell = { item, cell in cell.favoriteLabel.text = item }
-        favoritesView.tableView.dataSource = dataSource
-        favoritesView.tableView.register(FavoriteCell.self, forCellReuseIdentifier: Constants.cellIdentifier)
+        tableView.dataSource = dataSource
+        tableView.register(FavoriteCell.self, forCellReuseIdentifier: Constants.cellIdentifier)
     }
 }
