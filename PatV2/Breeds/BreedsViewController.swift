@@ -4,9 +4,9 @@ protocol BreedsPresentable: class {
     func passData(data: Decodable)
 }
 
-class BreedsViewController: UIViewController {
-    let breedsView = BreedsView()
+class BreedsViewController: UITableViewController {
     var presenter: BreedsPresenterType
+    let buttonPresenter = FavoriteButtonPresenter()
     let dataSource = TableViewDataSource<Breed, BreedCell>()
 
     init(presenter: BreedsPresenterType = BreedsPresenter(service: URLSessionService())) {
@@ -18,27 +18,30 @@ class BreedsViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
-    override func loadView() {
-        view = breedsView
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.presentable = self
-        setupView()
-        fetchData()
-    }
-
-    func setupView() {
-        breedsView.tableView.dataSource = dataSource
-        breedsView.tableView.rowHeight = 44
-        breedsView.tableView.delegate = self
-        breedsView.tableView.register(BreedCell.self, forCellReuseIdentifier: Constants.cellIdentifier)
-        dataSource.configureCell = { item, cell in cell.name.text = item.name }
-    }
-
-    func fetchData() {
+        setupTableView()
         presenter.fetchData(from: URL.breedsURL)
+    }
+
+    func setupTableView() {
+        tableView.dataSource = dataSource
+        tableView.rowHeight = 44
+        tableView.delegate = self
+        tableView.register(BreedCell.self, forCellReuseIdentifier: Constants.cellIdentifier)
+        dataSource.configureCell = { item, cell in
+            let breed = item.name.capitalizingFirstLetter()
+            cell.name.text = breed
+            cell.favoriteButton.setImage(self.buttonPresenter.getInitialButtonImage(for: breed), for: .normal)
+            cell.favoriteButton.addTarget(self, action: #selector(self.onTap(_:)), for: .touchUpInside)
+        }
+    }
+
+    @objc func onTap(_ sender: UIButton) {
+        guard let cell = sender.superview as? BreedCell else { return }
+        guard let breed = cell.name.text else { return }
+        buttonPresenter.tapButton(sender, for: breed)
     }
 }
 
@@ -47,15 +50,15 @@ extension BreedsViewController: BreedsPresentable {
         guard let breeds = data as? [Breed] else { return }
         DispatchQueue.main.async {
             self.dataSource.items = breeds
-            self.breedsView.tableView.reloadData()
+            self.tableView.reloadData()
         }
     }
 }
 
-extension BreedsViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+extension BreedsViewController {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath) as? BreedCell
-        guard let breed = cell?.name.text else { return }
+        guard let breed = cell?.name.text?.lowercased() else { return }
         let dogsVC = DogsViewController(breed: breed)
         navigationController?.pushViewController(dogsVC, animated: true)
     }
