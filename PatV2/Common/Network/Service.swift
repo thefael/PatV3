@@ -22,7 +22,7 @@ class URLSessionService: Service {
                 do {
                     let obj = try self.decoder.decode(T.self, from: data)
                     completion(.success(obj))
-                } catch { completion(.failure(error)) }
+                } catch { completion(.failure(CommonError.failedToDecodeData)) }
 
             case .failure(let error):
                 completion(.failure(error))
