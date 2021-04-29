@@ -28,13 +28,10 @@ class URLSessionServiceTests: XCTestCase {
         fetchData()
 
         sessionMock.fetchDataArgs?.completion(.failure(TestError.error))
-        var error: TestError?
-        do { let _ = try fetchDataResult?.get() }
-        catch let e {
-            error = e as? TestError
-        }
 
-        XCTAssertEqual(error, TestError.error)
+        XCTAssertThrowsError(try fetchDataResult?.get()) { error in
+            XCTAssertEqual(error as? TestError, TestError.error)
+        }
     }
 
     func test_fetchData_whenResultReturnsInvalidData_shouldCallCompletionWithCorrectError() {
@@ -80,21 +77,5 @@ class URLSessionServiceTests: XCTestCase {
         let _ = service.fetchImage(from: url) { result in
             self.fetchImageResult = result
         }
-    }
-}
-
-enum TestError: Error {
-    case error
-}
-
-struct JSONObject: Codable, Equatable {
-    let integer: Int
-
-    init(_ integer: Int = 1) {
-        self.integer = integer
-    }
-
-    var data: Data? {
-        return try? JSONEncoder().encode(self)
     }
 }
