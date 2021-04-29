@@ -1,8 +1,6 @@
-//
-//  UIImage+Extensions.swift
-//  PatV2
-//
-//  Created by Rafael Rodrigues on 26/04/21.
-//
+import UIKit
 
-import Foundation
+extension UIImage {
+    static let heart = UIImage(systemName: "heart")
+    static let heartFill = UIImage(systemName: "heart.fill")
+}

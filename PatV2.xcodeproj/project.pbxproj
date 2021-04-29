@@ -14,6 +14,7 @@
 		A80F5B2E2634B06C007D9C4A /* URLSessionAdapterMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80F5B2D2634B06C007D9C4A /* URLSessionAdapterMock.swift */; };
 		A81C09B72624DEBA0087F250 /* FavoriteBreedsCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81C09B62624DEBA0087F250 /* FavoriteBreedsCache.swift */; };
 		A81D42AA262E053E005EF46B /* FavoriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81D42A9262E053E005EF46B /* FavoriteCell.swift */; };
+		A826489A263B5A900009DF0B /* FavoriteState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8264899263B5A900009DF0B /* FavoriteState.swift */; };
 		A84644B4262A1BAB0044A96A /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84644B3262A1BAB0044A96A /* FavoritesViewController.swift */; };
 		A84701232625E1DC00F32182 /* String+CapitalizingFirstLetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84701222625E1DC00F32182 /* String+CapitalizingFirstLetter.swift */; };
 		A847012D26260CC000F32182 /* FavoriteButtonPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A847012C26260CC000F32182 /* FavoriteButtonPresenter.swift */; };
@@ -24,7 +25,9 @@
 		A84FAA3B260E950D00A1BBFC /* DogsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84FAA3A260E950D00A1BBFC /* DogsPresenter.swift */; };
 		A84FAA43260E967500A1BBFC /* DogCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84FAA42260E967500A1BBFC /* DogCell.swift */; };
 		A872C17D2620DD0C002DB810 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = A872C17C2620DD0C002DB810 /* ImageCache.swift */; };
+		A875CE7B26360D3800E2A111 /* BreedsPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A875CE7A26360D3800E2A111 /* BreedsPresenterTests.swift */; };
 		A8A8F270261FA1E400E3439C /* URLSessionAdaptable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A8F26F261FA1E400E3439C /* URLSessionAdaptable.swift */; };
+		A8B6CED22637982600D84736 /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B6CED12637982600D84736 /* UIImage+Extensions.swift */; };
 		A8C1ABB2260D2DE700085130 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C1ABB1260D2DE700085130 /* AppDelegate.swift */; };
 		A8C1ABB4260D2DE700085130 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C1ABB3260D2DE700085130 /* SceneDelegate.swift */; };
 		A8C1ABBB260D2DEA00085130 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A8C1ABBA260D2DEA00085130 /* Assets.xcassets */; };
@@ -63,6 +66,7 @@
 		A80F5B2D2634B06C007D9C4A /* URLSessionAdapterMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionAdapterMock.swift; sourceTree = "<group>"; };
 		A81C09B62624DEBA0087F250 /* FavoriteBreedsCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteBreedsCache.swift; sourceTree = "<group>"; };
 		A81D42A9262E053E005EF46B /* FavoriteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCell.swift; sourceTree = "<group>"; };
+		A8264899263B5A900009DF0B /* FavoriteState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteState.swift; sourceTree = "<group>"; };
 		A84644B3262A1BAB0044A96A /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		A84701222625E1DC00F32182 /* String+CapitalizingFirstLetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+CapitalizingFirstLetter.swift"; sourceTree = "<group>"; };
 		A847012C26260CC000F32182 /* FavoriteButtonPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteButtonPresenter.swift; sourceTree = "<group>"; };
@@ -73,7 +77,9 @@
 		A84FAA3A260E950D00A1BBFC /* DogsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogsPresenter.swift; sourceTree = "<group>"; };
 		A84FAA42260E967500A1BBFC /* DogCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogCell.swift; sourceTree = "<group>"; };
 		A872C17C2620DD0C002DB810 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
+		A875CE7A26360D3800E2A111 /* BreedsPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedsPresenterTests.swift; sourceTree = "<group>"; };
 		A8A8F26F261FA1E400E3439C /* URLSessionAdaptable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionAdaptable.swift; sourceTree = "<group>"; };
+		A8B6CED12637982600D84736 /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
 		A8C1ABAE260D2DE700085130 /* PatV2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PatV2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8C1ABB1260D2DE700085130 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A8C1ABB3260D2DE700085130 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -139,6 +145,7 @@
 		A80F5B182634AE24007D9C4A /* PatV2Tests */ = {
 			isa = PBXGroup;
 			children = (
+				A875CE7926360D1900E2A111 /* Breeds */,
 				A80F5B2B2634B052007D9C4A /* Helpers */,
 				A80F5B232634AEA5007D9C4A /* Common */,
 				A80F5B192634AE24007D9C4A /* PatV2Tests.swift */,
@@ -206,6 +213,14 @@
 				A8043A42262536D700520406 /* UserDefaultsAdaptable.swift */,
 			);
 			path = Cache;
+			sourceTree = "<group>";
+		};
+		A875CE7926360D1900E2A111 /* Breeds */ = {
+			isa = PBXGroup;
+			children = (
+				A875CE7A26360D3800E2A111 /* BreedsPresenterTests.swift */,
+			);
+			path = Breeds;
 			sourceTree = "<group>";
 		};
 		A8A3073C261BA356001CC04A /* DogsViews */ = {
@@ -282,6 +297,8 @@
 				A8C1AC33260D56B300085130 /* Constants.swift */,
 				A84FAA35260E893800A1BBFC /* CommonError.swift */,
 				A84701222625E1DC00F32182 /* String+CapitalizingFirstLetter.swift */,
+				A8B6CED12637982600D84736 /* UIImage+Extensions.swift */,
+				A8264899263B5A900009DF0B /* FavoriteState.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -442,6 +459,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A80F5B1A2634AE24007D9C4A /* PatV2Tests.swift in Sources */,
+				A875CE7B26360D3800E2A111 /* BreedsPresenterTests.swift in Sources */,
 				A80F5B2E2634B06C007D9C4A /* URLSessionAdapterMock.swift in Sources */,
 				A80F5B262634AEEC007D9C4A /* URLSessionServiceTests.swift in Sources */,
 			);
@@ -466,7 +484,9 @@
 				A81C09B72624DEBA0087F250 /* FavoriteBreedsCache.swift in Sources */,
 				A8C1ABEE260D2FC800085130 /* BreedsViewController.swift in Sources */,
 				A8C1ABB4260D2DE700085130 /* SceneDelegate.swift in Sources */,
+				A8B6CED22637982600D84736 /* UIImage+Extensions.swift in Sources */,
 				A84FAA23260E5B1800A1BBFC /* DogsViewController.swift in Sources */,
+				A826489A263B5A900009DF0B /* FavoriteState.swift in Sources */,
 				A872C17D2620DD0C002DB810 /* ImageCache.swift in Sources */,
 				A8C1AC10260D479C00085130 /* Service.swift in Sources */,
 				A8C1AC39260D598000085130 /* BreedCell.swift in Sources */,
