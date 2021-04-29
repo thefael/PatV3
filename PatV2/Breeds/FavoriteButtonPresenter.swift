@@ -18,13 +18,13 @@ class FavoriteButtonPresenter {
         }
     }
 
-    func tapButton(_ button: UIButton, for breed: String) {
-        if isFavorite(breed: breed) {
+    func toggleFavorite(breed: String) -> FavoriteState {
+        if favoritesCache.cache.contains(breed) {
             favoritesCache.remove(breed: breed)
-            button.setImage(heart, for: .normal)
+            return .isNotFavorite
         } else {
             favoritesCache.put(breed: breed)
-            button.setImage(heartFill, for: .normal)
+            return .isFavorite
         }
     }
 }
