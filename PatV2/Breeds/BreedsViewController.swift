@@ -30,18 +30,14 @@ class BreedsViewController: UITableViewController {
         tableView.rowHeight = 44
         tableView.delegate = self
         tableView.register(BreedCell.self, forCellReuseIdentifier: Constants.cellIdentifier)
-        dataSource.configureCell = { item, cell in
+        dataSource.configureCell = { [weak self] item, cell in
+            guard let self = self else { return }
             let breed = item.name.capitalizingFirstLetter()
-            cell.name.text = breed
+            cell.nameLabel.text = breed
+            cell.name = breed
             cell.favoriteButton.setImage(self.buttonPresenter.getInitialButtonImage(for: breed), for: .normal)
-            cell.favoriteButton.addTarget(self, action: #selector(self.onTap(_:)), for: .touchUpInside)
+            cell.delegate = self
         }
-    }
-
-    @objc func onTap(_ sender: UIButton) {
-        guard let cell = sender.superview as? BreedCell else { return }
-        guard let breed = cell.name.text else { return }
-        buttonPresenter.tapButton(sender, for: breed)
     }
 }
 
@@ -58,8 +54,14 @@ extension BreedsViewController: BreedsPresentable {
 extension BreedsViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath) as? BreedCell
-        guard let breed = cell?.name.text?.lowercased() else { return }
+        guard let breed = cell?.nameLabel.text?.lowercased() else { return }
         let dogsVC = DogsViewController(breed: breed)
         navigationController?.pushViewController(dogsVC, animated: true)
+    }
+}
+
+extension BreedsViewController: FavoriteButtonDelegate {
+    func toggleFavorite(breed: String) -> FavoriteState {
+        return buttonPresenter.toggleFavorite(breed: breed)
     }
 }
