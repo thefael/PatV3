@@ -1,8 +1,10 @@
-//
-//  BreedsPresentableMock.swift
-//  PatV2Tests
-//
-//  Created by Rafael Rodrigues on 06/05/21.
-//
+@testable import PatV2
+import UIKit
 
-import Foundation
+class BreedsPresentableMock: BreedsPresentable {
+    var breedsPassed: [Breed]?
+
+    func passBreeds(breeds: [Breed]) {
+        breedsPassed = breeds
+    }
+}
