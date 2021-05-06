@@ -14,11 +14,3 @@ class ServiceMock<S>: Service {
         return SuspendableTaskMock()
     }
 }
-
-class SuspendableTaskMock: SuspendableTask {
-    var didCallSuspend = false
-
-    func suspend() {
-        didCallSuspend = true
-    }
-}

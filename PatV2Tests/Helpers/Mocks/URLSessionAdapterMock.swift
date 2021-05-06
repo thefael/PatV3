@@ -9,8 +9,8 @@ class URLSessionAdapterMock: URLSessionAdaptable {
         fetchDataArgs = (url, completion)
     }
 
-    func fetchImage(from url: URL, completion: @escaping ((Result<UIImage, Error>) -> Void)) -> URLSessionTask {
+    func fetchImage(from url: URL, completion: @escaping ((Result<UIImage, Error>) -> Void)) -> SuspendableTask {
         fetchImageArgs = (url, completion)
-        return URLSession.shared.dataTask(with: url)
+        return SuspendableTaskMock()
     }
 }

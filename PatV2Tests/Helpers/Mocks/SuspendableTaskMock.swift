@@ -1,8 +1,9 @@
-//
-//  SuspendableTaskMock.swift
-//  PatV2Tests
-//
-//  Created by Rafael Rodrigues on 06/05/21.
-//
+@testable import PatV2
 
-import Foundation
+class SuspendableTaskMock: SuspendableTask {
+    var didCallSuspend = false
+
+    func suspend() {
+        didCallSuspend = true
+    }
+}
