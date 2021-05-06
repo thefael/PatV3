@@ -3,7 +3,7 @@ import SnapKit
 
 class DogCell: UITableViewCell {
     var dogImageView = UIImageView()
-    var imageTask: URLSessionTask?
+    var suspendableTask: SuspendableTask?
 
     let presenter = DogsPresenter(service: URLSessionService())
 
@@ -30,5 +30,6 @@ class DogCell: UITableViewCell {
 extension DogCell {
     override func prepareForReuse() {
         DispatchQueue.main.async { self.dogImageView.image = nil }
+        suspendableTask?.suspend()
     }
 }

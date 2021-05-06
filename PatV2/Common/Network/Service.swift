@@ -2,11 +2,10 @@ import UIKit
 
 protocol Service {
     func fetchData<T: Decodable>(from url: URL, completion: @escaping ((Result<T, Error>) -> Void))
-    func fetchImage(from url: URL, completion: @escaping ((Result<UIImage, Error>) -> Void)) -> URLSessionTask
+    func fetchImage(from url: URL, completion: @escaping ((Result<UIImage, Error>) -> Void)) -> SuspendableTask
 }
 
 class URLSessionService: Service {
-
     let session: URLSessionAdaptable
     let decoder: JSONDecoder
 
@@ -30,8 +29,8 @@ class URLSessionService: Service {
         }
     }
 
-    func fetchImage(from url: URL, completion: @escaping ((Result<UIImage, Error>) -> Void)) -> URLSessionTask {
-        let imageTask = session.fetchImage(from: url) { result in
+    func fetchImage(from url: URL, completion: @escaping ((Result<UIImage, Error>) -> Void)) -> SuspendableTask {
+        let task = session.fetchImage(from: url) { result in
             switch result {
             case .success(let image):
                 completion(.success(image))
@@ -39,6 +38,6 @@ class URLSessionService: Service {
                 completion(.failure(error))
             }
         }
-        return imageTask
+        return task
     }
 }
