@@ -1,11 +1,11 @@
 @testable import PatV2
 import UIKit
 
-class URLSessionServiceMock<S>: Service {
+class ServiceMock<S>: Service {
     var fetchDataArgs: (url: URL, completion: (Result<S, Error>) -> Void)?
     var fetchImageArgs: (url: URL, completion: (Result<UIImage, Error>) -> Void)?
 
-    func fetchData<T>(from url: URL, completion: @escaping ((Result<T, Error>) -> Void)) where T : Decodable {
+    func fetchData<T: Decodable>(from url: URL, completion: @escaping ((Result<T, Error>) -> Void)){
         fetchDataArgs = (url: url, completion: completion as! (Result<S, Error>) -> Void)
     }
 
