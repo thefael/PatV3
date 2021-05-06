@@ -18,7 +18,7 @@ class BreedsPresenter: BreedsPresenterType {
             switch result {
             case .success(let items):
                 let breeds = items.map { name in Breed(name: name) }
-                self.presentable?.passData(data: breeds)
+                self.presentable?.passBreeds(breeds: breeds)
             case .failure(let error):
                 print(error)
             }

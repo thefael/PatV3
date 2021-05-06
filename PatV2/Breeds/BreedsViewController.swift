@@ -1,7 +1,7 @@
 import UIKit
 
 protocol BreedsPresentable: class {
-    func passData(data: Decodable)
+    func passBreeds(breeds: [Breed])
 }
 
 class BreedsViewController: UITableViewController {
@@ -42,8 +42,7 @@ class BreedsViewController: UITableViewController {
 }
 
 extension BreedsViewController: BreedsPresentable {
-    func passData(data: Decodable) {
-        guard let breeds = data as? [Breed] else { return }
+    func passBreeds(breeds: [Breed]) {
         DispatchQueue.main.async {
             self.dataSource.items = breeds
             self.tableView.reloadData()
