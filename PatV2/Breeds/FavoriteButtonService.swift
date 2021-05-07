@@ -1,13 +1,14 @@
 import UIKit
 
-class FavoriteButtonPresenter {
-    private let favoritesCache = FavoriteBreedsCache.shared
+class FavoriteButtonService {
+    private let favoritesCache: FavoriteBreedsCacheType
 
-    private let heart = UIImage(systemName: "heart")
-    private let heartFill = UIImage(systemName: "heart.fill")
+    init(cache: FavoriteBreedsCacheType = FavoriteBreedsCache.shared) {
+        self.favoritesCache = cache
+    }
 
     func getInitialButtonImage(for breed: String) -> UIImage? {
-        return isFavorite(breed: breed) ? heartFill : heart
+        return isFavorite(breed: breed) ? .heartFill : .heart
     }
 
     private func isFavorite(breed: String) -> Bool {

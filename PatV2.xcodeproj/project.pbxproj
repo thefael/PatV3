@@ -17,7 +17,7 @@
 		A82648A2263B74A80009DF0B /* JSONObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82648A1263B74A80009DF0B /* JSONObject.swift */; };
 		A84644B4262A1BAB0044A96A /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84644B3262A1BAB0044A96A /* FavoritesViewController.swift */; };
 		A84701232625E1DC00F32182 /* String+CapitalizingFirstLetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84701222625E1DC00F32182 /* String+CapitalizingFirstLetter.swift */; };
-		A847012D26260CC000F32182 /* FavoriteButtonPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A847012C26260CC000F32182 /* FavoriteButtonPresenter.swift */; };
+		A847012D26260CC000F32182 /* FavoriteButtonService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A847012C26260CC000F32182 /* FavoriteButtonService.swift */; };
 		A84FAA10260DEC5A00A1BBFC /* BreedsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84FAA0F260DEC5A00A1BBFC /* BreedsPresenter.swift */; };
 		A84FAA23260E5B1800A1BBFC /* DogsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84FAA22260E5B1800A1BBFC /* DogsViewController.swift */; };
 		A84FAA2B260E5B3400A1BBFC /* DogsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84FAA2A260E5B3400A1BBFC /* DogsView.swift */; };
@@ -74,7 +74,7 @@
 		A82648A1263B74A80009DF0B /* JSONObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONObject.swift; sourceTree = "<group>"; };
 		A84644B3262A1BAB0044A96A /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		A84701222625E1DC00F32182 /* String+CapitalizingFirstLetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+CapitalizingFirstLetter.swift"; sourceTree = "<group>"; };
-		A847012C26260CC000F32182 /* FavoriteButtonPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteButtonPresenter.swift; sourceTree = "<group>"; };
+		A847012C26260CC000F32182 /* FavoriteButtonService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteButtonService.swift; sourceTree = "<group>"; };
 		A84FAA0F260DEC5A00A1BBFC /* BreedsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedsPresenter.swift; sourceTree = "<group>"; };
 		A84FAA22260E5B1800A1BBFC /* DogsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogsViewController.swift; sourceTree = "<group>"; };
 		A84FAA2A260E5B3400A1BBFC /* DogsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogsView.swift; sourceTree = "<group>"; };
@@ -284,7 +284,7 @@
 			children = (
 				A8C1AC38260D598000085130 /* BreedCell.swift */,
 				A8C1ABED260D2FC800085130 /* BreedsViewController.swift */,
-				A847012C26260CC000F32182 /* FavoriteButtonPresenter.swift */,
+				A847012C26260CC000F32182 /* FavoriteButtonService.swift */,
 				A84FAA0F260DEC5A00A1BBFC /* BreedsPresenter.swift */,
 				A8C1AC14260D4A0800085130 /* Breed.swift */,
 			);
@@ -499,7 +499,7 @@
 				A8C1AC2F260D50E500085130 /* TableViewDataSource.swift in Sources */,
 				A8A8F270261FA1E400E3439C /* URLSessionAdaptable.swift in Sources */,
 				A8C1AC08260D3AD100085130 /* URL+API.swift in Sources */,
-				A847012D26260CC000F32182 /* FavoriteButtonPresenter.swift in Sources */,
+				A847012D26260CC000F32182 /* FavoriteButtonService.swift in Sources */,
 				A81C09B72624DEBA0087F250 /* FavoriteBreedsCache.swift in Sources */,
 				A879B4E22643527F003404A9 /* SuspendableTask.swift in Sources */,
 				A8C1ABEE260D2FC800085130 /* BreedsViewController.swift in Sources */,

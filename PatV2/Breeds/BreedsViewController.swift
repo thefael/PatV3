@@ -6,10 +6,9 @@ protocol BreedsPresentable: class {
 
 class BreedsViewController: UITableViewController {
     var presenter: BreedsPresenterType
-    let buttonPresenter = FavoriteButtonPresenter()
     let dataSource = TableViewDataSource<Breed, BreedCell>()
 
-    init(presenter: BreedsPresenterType = BreedsPresenter(service: URLSessionService())) {
+    init(presenter: BreedsPresenterType = BreedsPresenter()) {
         self.presenter = presenter
         super.init(nibName: nil, bundle: nil)
     }
@@ -35,7 +34,7 @@ class BreedsViewController: UITableViewController {
             let breed = item.name.capitalizingFirstLetter()
             cell.nameLabel.text = breed
             cell.name = breed
-            cell.favoriteButton.setImage(self.buttonPresenter.getInitialButtonImage(for: breed), for: .normal)
+            cell.favoriteButton.setImage(self.presenter.getInitialButtonImage(for: breed), for: .normal)
             cell.delegate = self
         }
     }
@@ -61,6 +60,6 @@ extension BreedsViewController {
 
 extension BreedsViewController: FavoriteButtonDelegate {
     func toggleFavorite(breed: String) -> FavoriteState {
-        return buttonPresenter.toggleFavorite(breed: breed)
+        return presenter.toggleFavorite(breed: breed)
     }
 }
