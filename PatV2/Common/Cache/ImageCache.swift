@@ -7,7 +7,11 @@ protocol ImageCacheType {
 }
 
 class ImageCache: ImageCacheType {
-    var cache = NSCache<NSURL, UIImage>()
+    var cache: NSCache<NSURL, UIImage>
+
+    init(cache: NSCache<NSURL, UIImage> = NSCache<NSURL, UIImage>()) {
+        self.cache = cache
+    }
 
     func set(image: UIImage, forKey key: NSURL) {
         cache.setObject(image, forKey: key)
