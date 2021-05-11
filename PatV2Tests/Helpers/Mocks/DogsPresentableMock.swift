@@ -2,15 +2,14 @@
 import UIKit
 
 class DogsPresentableMock: DogsPresentable {
-    
+    var didCallPassData = false
+    var didCallPass = false
 
     func passData(urls: [URL]) {
-        <#code#>
+        didCallPassData = true
     }
 
     func pass(image: UIImage, to cell: DogCell) {
-        <#code#>
+        didCallPass = true
     }
-
-
 }
