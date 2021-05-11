@@ -4,6 +4,7 @@ import SnapKit
 class DogsView: UIView {
 
     let tableView = UITableView()
+    let alertView = UIAlertController()
 
     override init(frame: CGRect = Constants.screen) {
         super.init(frame: frame)

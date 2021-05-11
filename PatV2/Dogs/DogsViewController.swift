@@ -5,6 +5,10 @@ protocol DogsPresentable: class {
     func pass(image: UIImage, to cell: DogCell)
 }
 
+protocol PresenterErrorsPresetable: class {
+    func displayErrorMessage(error: Error)
+}
+
 class DogsViewController: UIViewController {
     let dogsView = DogsView()
     var presenter: DogsPresenterType
@@ -54,5 +58,16 @@ extension DogsViewController: DogsPresentable {
         DispatchQueue.main.async {
             cell.dogImageView.image = image
         }
+    }
+}
+
+extension DogsViewController: PresenterErrorsPresetable {
+    func displayErrorMessage(error: Error) {
+        dogsView.alertView.message = error.localizedDescription
+        dogsView.alertView.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: { action in
+            print("Dismiss")
+        }))
+
+        present(dogsView.alertView, animated: true)
     }
 }

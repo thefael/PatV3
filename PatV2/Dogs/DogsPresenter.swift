@@ -11,6 +11,7 @@ class DogsPresenter: DogsPresenterType {
     let service: Service
     let imageCache: ImageCacheType
     weak var presentable: DogsPresentable?
+    weak var errorPresentable: PresenterErrorsPresetable?
 
     init(service: Service = URLSessionService(), cache: ImageCacheType = ImageCache()) {
         self.service = service
@@ -23,7 +24,7 @@ class DogsPresenter: DogsPresenterType {
             case .success(let urls):
                 self.presentable?.passData(urls: urls)
             case .failure(let error):
-                print("Error on fetchURLs: \(error)")
+                self.errorPresentable?.displayErrorMessage(error: error)
             }
         }
     }
@@ -40,7 +41,7 @@ class DogsPresenter: DogsPresenterType {
                     self.imageCache.set(image: image, forKey: url as NSURL)
                     self.presentable?.pass(image: image, to: cell)
                 case .failure(let error):
-                    print("Error on fetchImage: \(error)")
+                    self.errorPresentable?.displayErrorMessage(error: error)
                 }
             }
             return task
