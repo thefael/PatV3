@@ -1,10 +1,8 @@
 import UIKit
 
 protocol UserDefaultsAdaptable {
-    var defaults: UserDefaults { get set }
     func set(_ object: Any, forKey key: String)
     func getObject(forKey key: String) -> Any?
-    func removeObject(forKey key: String)
 }
 
 class UserDefaultsAdapter: UserDefaultsAdaptable {
@@ -20,9 +18,5 @@ class UserDefaultsAdapter: UserDefaultsAdaptable {
 
     func getObject(forKey key: String) -> Any? {
         return defaults.object(forKey: key)
-    }
-
-    func removeObject(forKey key: String) {
-        defaults.removeObject(forKey: key)
     }
 }
