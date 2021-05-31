@@ -3,7 +3,8 @@ import XCTest
 
 class BreedsPresenterTests: XCTestCase {
     let serviceMock = ServiceMock<[String]>()
-    lazy var breedsPresenter = BreedsPresenter(service: serviceMock)
+    let buttonServiceMock = FavoriteButtonServiceMock()
+    lazy var breedsPresenter = BreedsPresenter(service: serviceMock, buttonService: buttonServiceMock)
     let presentableMock = BreedsPresentableMock()
     let url = URL(fileURLWithPath: "url")
 
@@ -17,8 +18,18 @@ class BreedsPresenterTests: XCTestCase {
         XCTAssertEqual(breedsPassed, BreedsFixture.breeds)
     }
 
-    func test_fetchData_whenResultIsFailure_should() {
+    func test_fetchData_whenResultIsFailure_should() {}
 
+    func test_getInitialButtonImage_shouldCallButtonServiceGetInitialButtonImage() {
+        let _ = breedsPresenter.getInitialButtonImage(for: "")
+
+        XCTAssert(buttonServiceMock.didCallGetiInitialButtonImage)
+    }
+
+    func test_toggleFavorite_shouldCallButtonServiceToggleFavorite() {
+        let _ = breedsPresenter.toggleFavorite(breed: "")
+
+        XCTAssert(buttonServiceMock.didCallToggleFavorite)
     }
 }
 

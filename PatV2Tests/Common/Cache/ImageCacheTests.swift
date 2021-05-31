@@ -23,8 +23,3 @@ class ImageCacheTests: XCTestCase {
         XCTAssertEqual(image, testImage)
     }
 }
-
-struct ImageCacheSavable {
-    static let testImage = UIImage(systemName: "heart")!
-    static let testNSURL = URL(string: "heart")! as NSURL
-}
