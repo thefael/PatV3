@@ -2,6 +2,7 @@ import UIKit
 
 protocol DogsPresenterType {
     var presentable: DogsPresentable? { get set }
+    var errorPresentable: PresenterErrorsPresetable? { get set }
     func fetchURLs(from url: URL)
     func fetchImage(from url: URL, into cell: DogCell) -> SuspendableTask?
 }
@@ -30,7 +31,7 @@ class DogsPresenter: DogsPresenterType {
     }
 
     func fetchImage(from url: URL, into cell: DogCell) -> SuspendableTask? {
-        if let image = imageCache.getImage(forKey: url as NSURL) {
+        if let image = imageCache.cache.object(forKey: url as NSURL) {
             self.presentable?.pass(image: image, to: cell)
             return nil
 

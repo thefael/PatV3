@@ -9,11 +9,11 @@ protocol BreedsPresenterType {
 
 class BreedsPresenter: BreedsPresenterType {
     let service: Service
-    let buttonService: FavoriteButtonService
+    let buttonService: FavoriteButtonServiceType
     weak var presentable: BreedsPresentable?
 
     init(service: Service = URLSessionService(),
-         buttonService: FavoriteButtonService = FavoriteButtonService()) {
+         buttonService: FavoriteButtonServiceType = FavoriteButtonService()) {
         self.service = service
         self.buttonService = buttonService
     }

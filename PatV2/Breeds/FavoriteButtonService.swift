@@ -1,6 +1,11 @@
 import UIKit
 
-class FavoriteButtonService {
+protocol FavoriteButtonServiceType {
+    func getInitialButtonImage(for breed: String) -> UIImage?
+    func toggleFavorite(breed: String) -> FavoriteState
+}
+
+class FavoriteButtonService: FavoriteButtonServiceType {
     private let favoritesCache: FavoriteBreedsCacheType
 
     init(cache: FavoriteBreedsCacheType = FavoriteBreedsCache.shared) {
