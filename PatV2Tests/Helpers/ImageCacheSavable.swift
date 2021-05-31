@@ -1,8 +1,6 @@
-//
-//  ImageCacheSavable.swift
-//  PatV2Tests
-//
-//  Created by Rafael Rodrigues on 11/05/21.
-//
+import UIKit
 
-import Foundation
+struct ImageCacheSavable {
+    static let testImage = UIImage(systemName: "heart")!
+    static let testNSURL = URL(string: "heart")! as NSURL
+}
