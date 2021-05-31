@@ -18,7 +18,15 @@ class BreedsPresenterTests: XCTestCase {
         XCTAssertEqual(breedsPassed, BreedsFixture.breeds)
     }
 
-    func test_fetchData_whenResultIsFailure_should() {}
+    func test_fetchData_whenResultIsFailure_shouldCallPresentError_withCorrectError() {
+        breedsPresenter.presentable = presentableMock
+        breedsPresenter.fetchData(from: url)
+
+        serviceMock.fetchDataArgs?.completion(.failure(TestError.error))
+        let errorPresented = presentableMock.errorPresented
+
+        XCTAssertEqual(errorPresented, TestError.error)
+    }
 
     func test_getInitialButtonImage_shouldCallButtonServiceGetInitialButtonImage() {
         let _ = breedsPresenter.getInitialButtonImage(for: "")
@@ -37,5 +45,3 @@ struct BreedsFixture {
     static let breedList = ["a", "b", "c"]
     static let breeds = breedList.map { name in Breed(name: name)}
 }
-
-
