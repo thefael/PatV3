@@ -1,8 +1,10 @@
-//
-//  PresenterErrorsPresentableMock.swift
-//  PatV2Tests
-//
-//  Created by Rafael Rodrigues on 11/05/21.
-//
+@testable import PatV2
+import UIKit
 
-import Foundation
+class PresenterErrorsPresentableMock: PresenterErrorsPresetable {
+    var didCallDisplayErrorMessage = false
+
+    func displayErrorMessage(error: Error) {
+        didCallDisplayErrorMessage = true
+    }
+}
