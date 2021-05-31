@@ -32,6 +32,7 @@ class DogsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.presentable = self
+        presenter.errorPresentable = self
         presenter.fetchURLs(from: URL.dogImagesURL(breed: breed))
         setupView()
     }
@@ -63,6 +64,7 @@ extension DogsViewController: DogsPresentable {
 
 extension DogsViewController: PresenterErrorsPresetable {
     func displayErrorMessage(error: Error) {
+        dogsView.alertView.title = "An error occurred"
         dogsView.alertView.message = error.localizedDescription
         dogsView.alertView.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: { action in
             print("Dismiss")
