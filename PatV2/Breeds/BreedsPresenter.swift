@@ -2,7 +2,7 @@ import UIKit
 
 protocol BreedsPresenterType {
     var presentable: BreedsPresentable? { get set }
-    func fetchData(from url: URL)
+    func fetchData(from url: URL) 
     func getInitialButtonImage(for breed: String) -> UIImage?
     func toggleFavorite(breed: String) -> FavoriteState
 }
@@ -25,7 +25,7 @@ class BreedsPresenter: BreedsPresenterType {
                 let breeds = items.map { name in Breed(name: name) }
                 self.presentable?.passBreeds(breeds: breeds)
             case .failure(let error):
-                print(error)
+                self.presentable?.presentError(error: error)
             }
         }
     }

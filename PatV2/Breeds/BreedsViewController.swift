@@ -2,6 +2,7 @@ import UIKit
 
 protocol BreedsPresentable: class {
     func passBreeds(breeds: [Breed])
+    func presentError(error: Error)
 }
 
 class BreedsViewController: UITableViewController {
@@ -46,6 +47,10 @@ extension BreedsViewController: BreedsPresentable {
             self.dataSource.items = breeds
             self.tableView.reloadData()
         }
+    }
+
+    func presentError(error: Error) {
+        print(error)
     }
 }
 
