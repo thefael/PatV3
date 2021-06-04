@@ -11,8 +11,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: windowScene)
 
-        let breedsNavController = UINavigationController(rootViewController: BreedsViewController())
-        let favoritesNavController = UINavigationController(rootViewController: FavoritesViewController())
+        let breedsVC = BreedsViewController()
+        let favoritesVC = FavoritesViewController()
+        breedsVC.title = "Breeds"
+        favoritesVC.title = "Favorites"
+        let breedsNavController = UINavigationController(rootViewController: breedsVC)
+        let favoritesNavController = UINavigationController(rootViewController: favoritesVC)
         let tabBarController = UITabBarController()
         tabBarController.delegate = tabBarController
         breedsNavController.title = "Breeds"

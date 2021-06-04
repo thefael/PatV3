@@ -1,6 +1,6 @@
 import UIKit
 
-protocol BreedsPresentable: class {
+protocol BreedsPresentable: AnyObject {
     func passBreeds(breeds: [Breed])
     func presentError(error: Error)
 }

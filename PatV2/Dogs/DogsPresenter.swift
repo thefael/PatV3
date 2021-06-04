@@ -2,7 +2,6 @@ import UIKit
 
 protocol DogsPresenterType {
     var presentable: DogsPresentable? { get set }
-    var errorPresentable: PresenterErrorsPresetable? { get set }
     func fetchURLs(from url: URL)
     func fetchImage(from url: URL, into cell: DogCell) -> SuspendableTask?
 }
@@ -12,7 +11,6 @@ class DogsPresenter: DogsPresenterType {
     let service: Service
     let imageCache: ImageCacheType
     weak var presentable: DogsPresentable?
-    weak var errorPresentable: PresenterErrorsPresetable?
 
     init(service: Service = URLSessionService(), cache: ImageCacheType = ImageCache()) {
         self.service = service
@@ -25,7 +23,7 @@ class DogsPresenter: DogsPresenterType {
             case .success(let urls):
                 self.presentable?.passData(urls: urls)
             case .failure(let error):
-                self.errorPresentable?.displayErrorMessage(error: error)
+                self.presentable?.presentError(error)
             }
         }
     }
@@ -42,7 +40,7 @@ class DogsPresenter: DogsPresenterType {
                     self.imageCache.set(image: image, forKey: url as NSURL)
                     self.presentable?.pass(image: image, to: cell)
                 case .failure(let error):
-                    self.errorPresentable?.displayErrorMessage(error: error)
+                    self.presentable?.presentError(error)
                 }
             }
             return task

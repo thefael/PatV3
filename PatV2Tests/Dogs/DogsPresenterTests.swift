@@ -5,7 +5,6 @@ class DogsPresenterTests: XCTestCase {
     let serviceMock = ServiceMock<[URL]>()
     let cacheMock = ImageCacheMock()
     let presentableMock = DogsPresentableMock()
-    let errorPresentableMock = PresenterErrorsPresentableMock()
 
     lazy var dogsPresenter = DogsPresenter(service: serviceMock, cache: cacheMock)
     let url = ImageCacheSavable.testNSURL as URL
@@ -15,7 +14,6 @@ class DogsPresenterTests: XCTestCase {
 
     override func setUp() {
         dogsPresenter.presentable = presentableMock
-        dogsPresenter.errorPresentable = errorPresentableMock
     }
 
     func test_fetchURLs_whenResultIsSuccess_shouldCallPassData() {
@@ -26,12 +24,12 @@ class DogsPresenterTests: XCTestCase {
         XCTAssert(presentableMock.didCallPassData)
     }
 
-    func test_fetchURLs_whenResultIsFailure_shouldCallDisplayErrorMessage() {
+    func test_fetchURLs_whenResultIsFailure_shouldCallPresentError() {
         dogsPresenter.fetchURLs(from: url)
 
         serviceMock.fetchDataArgs?.completion(.failure(TestError.error))
 
-        XCTAssert(errorPresentableMock.didCallDisplayErrorMessage)
+        XCTAssert(presentableMock.didCallPresentError)
     }
 
     func test_fetchImage_whenImageCacheHasImage_shouldCallPass() {
@@ -71,6 +69,6 @@ class DogsPresenterTests: XCTestCase {
 
         serviceMock.fetchImageArgs?.completion(.failure(TestError.error))
 
-        XCTAssert(errorPresentableMock.didCallDisplayErrorMessage)
+        XCTAssert(presentableMock.didCallPresentError)
     }
 }

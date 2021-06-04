@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		0B1D1E1271223C13AB35CA1D /* Pods_PatV2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DC66DBF75BE7DEA3872B615 /* Pods_PatV2.framework */; };
 		A8043A43262536D700520406 /* UserDefaultsAdaptable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8043A42262536D700520406 /* UserDefaultsAdaptable.swift */; };
-		A807E759264B3A7200B28F7B /* PresenterErrorsPresentableMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A807E758264B3A7200B28F7B /* PresenterErrorsPresentableMock.swift */; };
 		A807E75D264B400200B28F7B /* ImageCacheSavable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A807E75C264B400200B28F7B /* ImageCacheSavable.swift */; };
 		A80F5B262634AEEC007D9C4A /* URLSessionServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80F5B252634AEEC007D9C4A /* URLSessionServiceTests.swift */; };
 		A81C09B72624DEBA0087F250 /* FavoriteBreedsCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81C09B62624DEBA0087F250 /* FavoriteBreedsCache.swift */; };
@@ -75,7 +74,6 @@
 		51A01DE72EC657F087AFDA56 /* Pods-PatV2Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PatV2Tests.release.xcconfig"; path = "Target Support Files/Pods-PatV2Tests/Pods-PatV2Tests.release.xcconfig"; sourceTree = "<group>"; };
 		9DC66DBF75BE7DEA3872B615 /* Pods_PatV2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PatV2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8043A42262536D700520406 /* UserDefaultsAdaptable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsAdaptable.swift; sourceTree = "<group>"; };
-		A807E758264B3A7200B28F7B /* PresenterErrorsPresentableMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresenterErrorsPresentableMock.swift; sourceTree = "<group>"; };
 		A807E75C264B400200B28F7B /* ImageCacheSavable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheSavable.swift; sourceTree = "<group>"; };
 		A80F5B172634AE24007D9C4A /* PatV2Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PatV2Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A80F5B1B2634AE24007D9C4A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -225,7 +223,6 @@
 				A840AC582649DECB00846CC4 /* FavoriteBreedsCacheMock.swift */,
 				A840AC63264A0BB600846CC4 /* ImageCacheMock.swift */,
 				A840AC67264A163B00846CC4 /* DogsPresentableMock.swift */,
-				A807E758264B3A7200B28F7B /* PresenterErrorsPresentableMock.swift */,
 				A872ACB62662832E002742E0 /* FavoriteButtonServiceMock.swift */,
 			);
 			path = Mocks;
@@ -533,7 +530,6 @@
 				A82648A2263B74A80009DF0B /* JSONObject.swift in Sources */,
 				A840AC552649DC7100846CC4 /* FavoriteButtonServiceTests.swift in Sources */,
 				A872ACB72662832E002742E0 /* FavoriteButtonServiceMock.swift in Sources */,
-				A807E759264B3A7200B28F7B /* PresenterErrorsPresentableMock.swift in Sources */,
 				A8BA56D0263F69D90072AA1F /* ServiceMock.swift in Sources */,
 				A840AC5E264A0A0000846CC4 /* DogsPresenterTests.swift in Sources */,
 				A80F5B262634AEEC007D9C4A /* URLSessionServiceTests.swift in Sources */,
