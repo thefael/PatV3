@@ -3,6 +3,7 @@ import UIKit
 
 class ImageCacheMock: ImageCacheType {
     var cache: NSCache<NSURL, UIImage>
+    var getImageHandler: ((NSURL) -> UIImage?)?
 
     var didCallSet = false
     var didCallGetImage = false
@@ -17,6 +18,6 @@ class ImageCacheMock: ImageCacheType {
 
     func getImage(forKey key: NSURL) -> UIImage? {
         didCallGetImage = true
-        return nil
+        return getImageHandler?(key)
     }
 }

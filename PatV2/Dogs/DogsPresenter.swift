@@ -29,7 +29,7 @@ class DogsPresenter: DogsPresenterType {
     }
 
     func fetchImage(from url: URL, into cell: DogCell) -> SuspendableTask? {
-        if let image = imageCache.cache.object(forKey: url as NSURL) {
+        if let image = imageCache.getImage(forKey: url as NSURL){
             self.presentable?.pass(image: image, to: cell)
             return nil
 

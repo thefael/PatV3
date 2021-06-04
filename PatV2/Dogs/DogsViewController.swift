@@ -39,6 +39,7 @@ class DogsViewController: UIViewController {
         dogsView.tableView.register(DogCell.self, forCellReuseIdentifier: Constants.cellIdentifier)
         dataSource.configureCell = { url, cell in
             cell.suspendableTask = self.presenter.fetchImage(from: url, into: cell)
+//            cell.fetchImage(url: url)
         }
     }
 }
