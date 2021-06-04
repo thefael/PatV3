@@ -1,8 +1,9 @@
 import UIKit
 
-protocol DogsPresentable: class {
+protocol DogsPresentable: AnyObject {
     func passData(urls: [URL])
     func pass(image: UIImage, to cell: DogCell)
+    func presentError(_ error: Error)
 }
 
 class DogsViewController: UIViewController {
@@ -34,11 +35,10 @@ class DogsViewController: UIViewController {
 
     func setupView() {
         dogsView.tableView.dataSource = dataSource
-        dogsView.tableView.delegate = self
         dogsView.tableView.rowHeight = 200
         dogsView.tableView.register(DogCell.self, forCellReuseIdentifier: Constants.cellIdentifier)
         dataSource.configureCell = { url, cell in
-            cell.imageTask = self.presenter.fetchImage(from: url, into: cell)
+            cell.suspendableTask = self.presenter.fetchImage(from: url, into: cell)
         }
     }
 }
@@ -56,11 +56,16 @@ extension DogsViewController: DogsPresentable {
             cell.dogImageView.image = image
         }
     }
-}
 
-extension DogsViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        let cell = cell as? DogCell
-        cell?.imageTask?.suspend()
+    func presentError(_ error: Error) {
+        DispatchQueue.main.async {
+            self.dogsView.alertView.title = "An error occurred"
+            self.dogsView.alertView.message = error.localizedDescription
+            self.dogsView.alertView.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: { action in
+                print("Dismiss")
+            }))
+
+            self.present(self.dogsView.alertView, animated: true)
+        }
     }
 }

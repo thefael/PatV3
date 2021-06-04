@@ -3,7 +3,7 @@ import UIKit
 protocol DogsPresenterType {
     var presentable: DogsPresentable? { get set }
     func fetchURLs(from url: URL)
-    func fetchImage(from url: URL, into: DogCell) -> URLSessionTask?
+    func fetchImage(from url: URL, into cell: DogCell) -> SuspendableTask?
 }
 
 class DogsPresenter: DogsPresenterType {
@@ -23,27 +23,27 @@ class DogsPresenter: DogsPresenterType {
             case .success(let urls):
                 self.presentable?.passData(urls: urls)
             case .failure(let error):
-                print("Error on fetchURLs: \(error)")
+                self.presentable?.presentError(error)
             }
         }
     }
 
-    func fetchImage(from url: URL, into cell: DogCell) -> URLSessionTask? {
-        if let image = imageCache.getImage(forKey: url as NSURL) {
+    func fetchImage(from url: URL, into cell: DogCell) -> SuspendableTask? {
+        if let image = imageCache.cache.object(forKey: url as NSURL) {
             self.presentable?.pass(image: image, to: cell)
             return nil
 
         } else {
-            let imageTask = service.fetchImage(from: url) { result in
+            let task = service.fetchImage(from: url) { result in
                 switch result {
                 case .success(let image):
                     self.imageCache.set(image: image, forKey: url as NSURL)
                     self.presentable?.pass(image: image, to: cell)
                 case .failure(let error):
-                    print("Error on fetchImage: \(error)")
+                    self.presentable?.presentError(error)
                 }
             }
-            return imageTask
+            return task
         }
     }
 }
