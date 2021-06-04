@@ -1,14 +1,14 @@
 import UIKit
 
 protocol FavoriteBreedsCacheType {
-    var cache: [String] { get set }
-    var defaults: UserDefaultsAdaptable { get set }
     func put(breed: String)
     func remove(breed: String)
+    func getFavorites() -> [String]
+    func isFavorite(breed: String) -> Bool
 }
 
 class FavoriteBreedsCache: FavoriteBreedsCacheType {
-    var cache: [String]
+    private var cache: [String]
     static let shared = FavoriteBreedsCache()
     internal var defaults: UserDefaultsAdaptable
 
@@ -27,5 +27,13 @@ class FavoriteBreedsCache: FavoriteBreedsCacheType {
     func remove(breed: String) {
         cache.removeAll { $0 == breed }
         defaults.set(cache, forKey: Constants.favoriteCacheKey)
+    }
+
+    func getFavorites() -> [String] {
+        return cache
+    }
+
+    func isFavorite(breed: String) -> Bool {
+        cache.contains(breed)
     }
 }
