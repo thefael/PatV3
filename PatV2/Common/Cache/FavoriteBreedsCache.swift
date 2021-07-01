@@ -10,12 +10,12 @@ protocol FavoriteBreedsCacheType {
 class FavoriteBreedsCache: FavoriteBreedsCacheType {
     private var cache: [String]
     static let shared = FavoriteBreedsCache()
-    internal var defaults: UserDefaultsAdaptable
+    private var defaults: UserDefaultsAdaptable
 
     init(cache: [String] = [String](), defaults: UserDefaultsAdaptable = UserDefaultsAdapter()) {
         if let cache = defaults.getObject(forKey: Constants.favoriteCacheKey) as? [String] {
             self.cache = cache
-        } else { self.cache = cache}
+        } else { self.cache = cache }
         self.defaults = defaults
     }
 
