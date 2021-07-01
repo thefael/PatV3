@@ -16,7 +16,7 @@ class FavoriteBreedsCacheTests: XCTestCase {
     func test_put_shouldSetBreedIntoCache() {
         favoriteBreedsCache.put(breed: testBreed)
 
-        let cache = favoriteBreedsCache.cache
+        let cache = favoriteBreedsCache.getFavorites()
 
         XCTAssert(cache.contains(testBreed))
     }
@@ -29,11 +29,24 @@ class FavoriteBreedsCacheTests: XCTestCase {
 
     func test_remove_shouldRemoveBreedFromCache() {
         testCache.append(testBreed)
-        favoriteBreedsCache.cache = testCache
 
         favoriteBreedsCache.remove(breed: testBreed)
 
-        let cache = favoriteBreedsCache.cache
+        let cache = favoriteBreedsCache.getFavorites()
         XCTAssertFalse(cache.contains(testBreed))
+    }
+
+    func test_isFavorite_whenCacheHasBreed_shouldReturnTrue() {
+        favoriteBreedsCache.put(breed: testBreed)
+
+        let isFavorite = favoriteBreedsCache.isFavorite(breed: testBreed)
+
+        XCTAssert(isFavorite)
+    }
+
+    func test_isFavorite_whenCacheHasNoBreed_shouldReturnFalse() {
+        let isFavorite = favoriteBreedsCache.isFavorite(breed: testBreed)
+
+        XCTAssertFalse(isFavorite)
     }
 }

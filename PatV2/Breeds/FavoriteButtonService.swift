@@ -13,19 +13,11 @@ class FavoriteButtonService: FavoriteButtonServiceType {
     }
 
     func getInitialButtonImage(for breed: String) -> UIImage? {
-        return isFavorite(breed: breed) ? .heartFill : .heart
-    }
-
-    private func isFavorite(breed: String) -> Bool {
-        if favoritesCache.cache.contains(breed) {
-            return true
-        } else {
-            return false
-        }
+        return favoritesCache.isFavorite(breed: breed) ? .heartFill : .heart
     }
 
     func toggleFavorite(breed: String) -> FavoriteState {
-        if favoritesCache.cache.contains(breed) {
+        if favoritesCache.isFavorite(breed: breed) {
             favoritesCache.remove(breed: breed)
             return .isNotFavorite
         } else {

@@ -7,6 +7,10 @@ class FavoriteBreedsCacheMock: FavoriteBreedsCacheType {
 
     var didCallPut = false
     var didCallRemove = false
+    var didCallGetFavorites = false
+    var didCallIsFavorites = false
+    var isFavoriteHandler: ((String) -> Bool)?
+    var getFavoritesHandler: (() -> [String])?
 
     init(cache: [String] = [String](), defaults: UserDefaultsAdaptable = UserDefaultsAdapterMock()) {
         self.cache = cache
@@ -21,5 +25,11 @@ class FavoriteBreedsCacheMock: FavoriteBreedsCacheType {
         didCallRemove = true
     }
 
+    func getFavorites() -> [String] {
+        getFavoritesHandler!()
+    }
 
+    func isFavorite(breed: String) -> Bool {
+        return isFavoriteHandler!(breed)
+    }
 }

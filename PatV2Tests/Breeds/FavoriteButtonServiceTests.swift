@@ -3,11 +3,11 @@ import XCTest
 
 class FavoriteButtonServiceTests: XCTestCase {
     let breedFixture = BreedsFixture.breedList[0]
-    lazy var cacheWithBreed = FavoriteBreedsCacheMock(cache: [breedFixture])
-    let cacheWithNoBreed = FavoriteBreedsCacheMock()
+    let favoriteCache = FavoriteBreedsCacheMock()
 
     func test_getInitialButtonImage_whenBreedIsFavorite_shouldReturnCorrectImage() {
-        let service = FavoriteButtonService(cache: cacheWithBreed)
+        let service = FavoriteButtonService(cache: favoriteCache)
+        breedIsFavorite(true)
 
         let image = service.getInitialButtonImage(for: breedFixture)
 
@@ -15,7 +15,8 @@ class FavoriteButtonServiceTests: XCTestCase {
     }
 
     func test_getInitialButtonImage_whenBreedIsNotFavorite_shouldReturnCorrectImage() {
-        let service = FavoriteButtonService(cache: cacheWithNoBreed)
+        let service = FavoriteButtonService(cache: favoriteCache)
+        breedIsFavorite(false)
 
         let image = service.getInitialButtonImage(for: breedFixture)
 
@@ -23,15 +24,17 @@ class FavoriteButtonServiceTests: XCTestCase {
     }
 
     func test_toggleFavorite_whenBreedIsFavorite_shouldCallRemove() {
-        let service = FavoriteButtonService(cache: cacheWithBreed)
+        let service = FavoriteButtonService(cache: favoriteCache)
+        breedIsFavorite(true)
 
         let _ = service.toggleFavorite(breed: breedFixture)
 
-        XCTAssert(cacheWithBreed.didCallRemove)
+        XCTAssert(favoriteCache.didCallRemove)
     }
 
     func test_toggleFavorite_whenBreedIsFavorite_shouldReturnNewFavoriteState_isNotFavorite() {
-        let service = FavoriteButtonService(cache: cacheWithBreed)
+        let service = FavoriteButtonService(cache: favoriteCache)
+        breedIsFavorite(true)
 
         let favoriteState = service.toggleFavorite(breed: breedFixture)
 
@@ -39,18 +42,24 @@ class FavoriteButtonServiceTests: XCTestCase {
     }
 
     func test_toggleFavorite_whenBreedIsNotFavorite_shouldCallPut() {
-        let service = FavoriteButtonService(cache: cacheWithNoBreed)
+        let service = FavoriteButtonService(cache: favoriteCache)
+        breedIsFavorite(false)
 
         let _ = service.toggleFavorite(breed: breedFixture)
 
-        XCTAssert(cacheWithNoBreed.didCallPut)
+        XCTAssert(favoriteCache.didCallPut)
     }
 
     func test_toggleFavorite_whenBreedIsNotFavorite_shouldReturnNewFavoriteState_isFavorite() {
-        let service = FavoriteButtonService(cache: cacheWithNoBreed)
+        let service = FavoriteButtonService(cache: favoriteCache)
+        breedIsFavorite(false)
 
         let favoriteState = service.toggleFavorite(breed: breedFixture)
 
         XCTAssertEqual(favoriteState, FavoriteState.isFavorite)
+    }
+
+    func breedIsFavorite(_ isFavorite: Bool) {
+        favoriteCache.isFavoriteHandler = { _ in isFavorite }
     }
 }

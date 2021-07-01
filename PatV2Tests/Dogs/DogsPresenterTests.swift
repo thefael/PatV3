@@ -33,7 +33,9 @@ class DogsPresenterTests: XCTestCase {
     }
 
     func test_fetchImage_whenImageCacheHasImage_shouldCallPass() {
-        dogsPresenter.imageCache.cache.setObject(testImage, forKey: testNSURL)
+        cacheMock.getImageHandler = { _ in
+            return self.testImage
+        }
 
         let _ = dogsPresenter.fetchImage(from: url, into: dogCell)
 
@@ -41,7 +43,9 @@ class DogsPresenterTests: XCTestCase {
     }
 
     func test_fetchImage_whenImageCacheHasImage_shouldReturnNil() {
-        dogsPresenter.imageCache.cache.setObject(testImage, forKey: testNSURL)
+        cacheMock.getImageHandler = { _ in
+            return self.testImage
+        }
 
         let suspendableTask = dogsPresenter.fetchImage(from: url, into: dogCell)
 

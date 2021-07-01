@@ -1,11 +1,11 @@
 import UIKit
 
 class FavoritesViewController: UITableViewController {
-    let cache: FavoriteBreedsCacheType
+    let favoritesCache: FavoriteBreedsCacheType
     let dataSource = TableViewDataSource<String, FavoriteCell>()
 
     init(cache: FavoriteBreedsCacheType = FavoriteBreedsCache.shared) {
-        self.cache = cache
+        self.favoritesCache = cache
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -14,7 +14,7 @@ class FavoritesViewController: UITableViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        dataSource.items = cache.cache.sorted { $0 < $1 }
+        dataSource.items = favoritesCache.getFavorites().sorted { $0 < $1 }
         tableView.reloadData()
     }
 

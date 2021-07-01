@@ -25,6 +25,8 @@ class DogCell: UITableViewCell {
         }
         dogImageView.contentMode = .scaleAspectFill
     }
+
+    
 }
 
 extension DogCell {
